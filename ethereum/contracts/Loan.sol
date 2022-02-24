@@ -1,5 +1,3 @@
-
-// SPDX-License-Identifier: MIT
 pragma solidity >=0.7.0 <0.9.0;
 
 import "./ggeth.sol";
@@ -15,36 +13,41 @@ contract Loan{
 
     // Change everything to English 
 
-    uint interes;
+    uint interest;
     uint total;
-    uint corte;
+    uint cut;
     uint nTokens;
-    uint fechaMAX;
+    uint timeLimit;
     uint amount;
 
     address token;
     address dao;
     address admin;
+
+    bool withdrawedTokenDAO;
+    bool paid;
     ggETH LPtoken;
    
     mapping(address=>uint) public deposits;
 
     constructor(
-        uint _interes,
+        uint _interest,
         uint _total,
-        uint _corte,
+        uint _cut,
         uint _nTokens,
         address _token,
         address _dao,
         address _admin) payable{
-        interes = _interes;
+        interest = _interest;
      total=_total;
-     corte=_corte;
+     cut=_cut;
      nTokens=_nTokens ;
      token=_token;
      dao = _dao; 
      admin=_admin ;
      amount = 0;
+     withdrawed = false;
+     paid = true;
 
      /* 
      As soon as the contract is created the 24 hour time window to deposit 
@@ -53,7 +56,6 @@ contract Loan{
      On the other hand, if the amount is indeed achieved then the loan process commences and the LPs will 
      only be able to make withdraws once the loan is paid for. 
     */
-
     }
 
     modifier isborrower(){
@@ -65,9 +67,27 @@ contract Loan{
         require(msg.sender == admin);
         _;
     }
+    //DAO functions
+    function withdrawETHdao() external isborrower{
+        /* 
+        Is the intended amount is successfully raised from LPs in the 24-hour 
+        window after the creation of the loan contract then DAO may withdraw his loan in ether.
+        */
+        require(block.timestamp>timeLimit,"TOGGE: NOT_END");
+        require(amount == total,"TOGGE: OVER_MAX");
+        require(!withdrawed);
 
+        withdrawed = !withdrawed;
+        total = 0;
+        uint _amount = amount;
+
+        (bool sent, ) =  payable(msg.sender).call{value: _amount}("");
+        require(sent, "TOGGE: FAILED_SEND");
+        emit ethWithdraw(amount);
+    }
 
     function depositTokens_startLPdeposits(uint _value) external isborrower{
+        //The 24 h time limit is set, as the DAO deposits its tokens as collateral
         uint _nTokens = nTokens;
         address _token = token;
         address _dao = dao;
@@ -78,15 +98,36 @@ contract Loan{
         require(success,"TOGGE: TRANSFER_FAILED");
         emit tokenDeposited(_value,address(this));
 
-        fechaMAX = block.timestamp + 24 hours;
-        emit LPdepositsActive(block.timestamp,fechaMAX);
+        timeLimit = block.timestamp + 24 hours;
+        emit LPdepositsActive(block.timestamp,timeLimit);
     }
 
+    function payLoan()external payable{
+        //Dao pays the owed money + interest and gets tokens back
+        uint meses = (block.timestamp - timeLimit)/(60*60*24*30);
+        require(withdrawed);
 
-    
-    function deposit_LP()external payable{
+        total += msg.value;
+
+        require(total >= (amount + amount*interest*meses),"TOGGE: UNDER_PAY");
+        paid = true;
+    }
+
+    function withdrawTokensDAO()external isborrower{
+        // After paying the loan, the DAO can get back the Tokens used as collateral
+        require(paid,"TOGGE: OVER_MAX"); //aqui hay un problema
+        require(block.timestamp>timeLimit,"TOGGE: NOT_END");
+        
+
+        bool _respo = IERC20(token).transfer(dao,nTokens);
+        require(_respo, "TOGGE: FAILED_SEND");
+        emit tokenWithdraw(dao,nTokens);
+
+    }
+    //LP functions
+     function deposit_LP()external payable{
         // The LPs can only make deposits for 24 hours after the loan contract was created.
-        require(block.timestamp<=fechaMAX,"TOGGE: TIME_PAST");
+        require(block.timestamp<=timeLimit,"TOGGE: TIME_PAST");
         require(amount+msg.value<total,"TOGGE: OVER_MAX");
         emit left(total,amount);
 
@@ -95,20 +136,9 @@ contract Loan{
         
     }
 
-
-    function withdrawTokensDAO()external isborrower{
-        require(amount<total,"TOGGE: OVER_MAX");
-        require(block.timestamp>fechaMAX,"TOGGE: NOT_END");
-        
-
-        bool _respo = IERC20(token).transfer(dao,nTokens);
-        require(_respo, "TOGGE: FAILED_SEND");
-        emit tokenWithdraw(dao,nTokens);
-
-    }
-
-    function createLPtoken(string memory _name, string memory _symbol) external isadmin{
-        require(block.timestamp>fechaMAX,"TOGGE: NOT_END");
+    function createLPtoken(string memory _name, string memory _symbol) external isadmin{ 
+        //We create the LP token that represents the share of the pool the LP owns
+        require(block.timestamp>timeLimit,"TOGGE: NOT_END");
         require(amount == total,"TOGGE: OVER_MAX");
 
         LPtoken = new ggETH(_name,_symbol); 
@@ -118,41 +148,24 @@ contract Loan{
     function withdrawLPtoken() external {
         /*
         Once an LP token is created then LPs can call the function to receive a function that 
-        represents their stake in the loan. Interest will be paid out by the appreciation of this token. 
+        represents their stake in the loan. interest will be paid out by the appreciation of this token. 
         Because the DAO will pay his interest directly to the loan pool the percentage on the value that your 
         token represents will be higher 
         in eth terns ounce the loan is completely paid with interest.
         */
         require(deposits[msg.sender]!= 0,"TOGGE: NO_VALUE");
-        require(block.timestamp>fechaMAX,"TOGGE: NOT_END");
+        require(block.timestamp>timeLimit,"TOGGE: NOT_END");
         require(amount == total,"TOGGE: OVER_MAX");
 
         LPtoken.mint(msg.sender,deposits[msg.sender]);
     }
-
-    function withdrawETHdao() external isborrower{
-        /* 
-        Is the intended amount is successfully raised from LPs in the 24-hour 
-        window after the creation of the loan contract then DAO may withdraw his loan in ether.
-        */
-        require(block.timestamp>fechaMAX,"TOGGE: NOT_END");
-        require(amount == total,"TOGGE: OVER_MAX");
-
-        uint _amount = amount;
-        amount = 0;
-
-        (bool sent, ) =  payable(msg.sender).call{value: _amount}("");
-        require(sent, "TOGGE: FAILED_SEND");
-        emit ethWithdraw(amount);
-    }
-
 
     function withdrawFailedDeposits() external {
         //If the desired loan amount is not achieved then the LP can withdraw the ether he deposited 
 
         require(deposits[msg.sender]!=0,"TOGGE: NO_VALUE");
         require(amount<total,"TOGGE: OVER_MAX");
-        require(block.timestamp>fechaMAX,"TOGGE: NOT_END");
+        require(block.timestamp>timeLimit,"TOGGE: NOT_END");
 
         uint _deposit = deposits[msg.sender];
         deposits[msg.sender] = 0;
