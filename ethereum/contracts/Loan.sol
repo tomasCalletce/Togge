@@ -136,6 +136,19 @@ contract Loan{
         
     }
 
+    function withdrawal_LP()external payable{
+        // The LPs can only make deposits for 24 hours after the loan contract was created.
+        require(deposits[msg.sender]!=0,"TOGGE: NO_VALUE");
+        require(paid,"TOGGE: NOT_PAID");
+
+        // uint loanWeight = we retrieve the percentage of the pool owned by him;
+        deposits[msg.sender] = 0;
+
+        //(bool sent, ) =  payable(msg.sender).call{value: loanWeight*total/???}(""); we multiply the total by the loanWeight in %
+        require(sent, "TOGGE: FAILED_SEND");
+        
+    }
+
     function createLPtoken(string memory _name, string memory _symbol) external isadmin{ 
         //We create the LP token that represents the share of the pool the LP owns
         require(block.timestamp>timeLimit,"TOGGE: NOT_END");
