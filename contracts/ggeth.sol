@@ -1,4 +1,5 @@
-pragma solidity ^0.8.0;
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.7;
 
 
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
@@ -7,6 +8,8 @@ import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 contract ggETH is ERC721 {
 
     address admin;
+
+
 
     constructor(
         string memory name,
@@ -20,3 +23,5 @@ contract ggETH is ERC721 {
     }
 
 }
+
+
