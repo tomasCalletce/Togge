@@ -82,7 +82,7 @@ contract togLoan {
 
     // $$$$ MUST CHANGE NAMES $$$$
 
-    ERC20 public LPtoken;
+    ERC721 public LPtoken;
     
     // caller is 
     modifier isBorrower(){
@@ -119,7 +119,7 @@ contract togLoan {
     function depositdepositTokens(uint _value) external isBorrower {
         require(_value == numberBorrowerTokens,"TOGGE: NOT_TOKEN");
         
-        bool success = IERC20(borrowerToken).transferFrom(borrower,address(this),_value);
+        bool success = IERC721(borrowerToken).transferFrom(borrower,address(this),_value);
         require(success,"TOGGE: TRANSFER_FAILED");
         emit borrowerTokenDeposited(_value,address(this));
 
@@ -208,7 +208,7 @@ contract togLoan {
         require(block.timestamp>timeLimit,"TOGGE: NOT_END");
         
 
-        bool _respo = IERC20(token).transfer(dao,nTokens);
+        bool _respo = IERC721(token).transfer(dao,nTokens);
         require(_respo, "TOGGE: FAILED_SEND");
         emit tokenWithdraw(dao,nTokens);
     }
@@ -244,4 +244,3 @@ contract togLoan {
     }
 
 }
-

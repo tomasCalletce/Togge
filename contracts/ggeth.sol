@@ -1,18 +1,17 @@
-// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
 
-import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
+import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 
 
-contract ggETH is ERC20 {
+contract ggETH is ERC721 {
 
     address admin;
 
     constructor(
         string memory name,
         string memory symbol
-    )ERC20(name, symbol) {}
+    )ERC721(name, symbol) {}
 
 
     function mint(address _account, uint256 _amount) external {
