@@ -1,0 +1,149 @@
+{
+  "version": "3.2",
+  "log": [
+    {
+      "Box": {
+        "src": "contracts/Box.sol:12",
+        "version": {
+          "withMetadata": "bad8f9e36ec3c3f044753ec238d9295887b836e7c293c1ae1145c9988b649d41",
+          "withoutMetadata": "58a4a4ce6c4d6038902284dfb469539d258f652565aa4fe4905418d82a2958e4",
+          "linkedWithoutMetadata": "58a4a4ce6c4d6038902284dfb469539d258f652565aa4fe4905418d82a2958e4"
+        },
+        "inherit": [],
+        "libraries": [],
+        "methods": [
+          "initialize(uint256)"
+        ],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [
+            {
+              "label": "val",
+              "offset": 0,
+              "slot": "0",
+              "type": "t_uint256",
+              "contract": "Box",
+              "src": "contracts/Box.sol:13"
+            }
+          ],
+          "types": {
+            "t_uint256": {
+              "label": "uint256",
+              "numberOfBytes": "32"
+            }
+          },
+          "layoutVersion": "1.1",
+          "flat": true
+        }
+      },
+      "BoxV2": {
+        "src": "contracts/BoxV2.sol:4",
+        "version": {
+          "withMetadata": "a0685300e4b3b4f1ab3b54706c202b43405e04a34388b30c1be0540e9b2dd3ab",
+          "withoutMetadata": "0b9035f36ab2674d2e267652347ba5e2916bb03629a5125c9d8c762132893eab",
+          "linkedWithoutMetadata": "0b9035f36ab2674d2e267652347ba5e2916bb03629a5125c9d8c762132893eab"
+        },
+        "inherit": [],
+        "libraries": [],
+        "methods": [
+          "inc()"
+        ],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [
+            {
+              "label": "val",
+              "offset": 0,
+              "slot": "0",
+              "type": "t_uint256",
+              "contract": "BoxV2",
+              "src": "contracts/BoxV2.sol:5"
+            }
+          ],
+          "types": {
+            "t_uint256": {
+              "label": "uint256",
+              "numberOfBytes": "32"
+            }
+          },
+          "layoutVersion": "1.1",
+          "flat": true
+        }
+      }
+    },
+    {
+      "Box": {
+        "src": "contracts/Box.sol:5",
+        "version": {
+          "withMetadata": "82fe3843a996bebc2d3b98e6b5d7921ebffcb734c8378229d6eaad46de32a5e0",
+          "withoutMetadata": "11ac4d741431f88473a3e427ab3e42c938b6bf91535b79d8d2245e2cf353c8a7",
+          "linkedWithoutMetadata": "11ac4d741431f88473a3e427ab3e42c938b6bf91535b79d8d2245e2cf353c8a7"
+        },
+        "inherit": [],
+        "libraries": [],
+        "methods": [
+          "initialize(uint256)"
+        ],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [
+            {
+              "label": "val",
+              "offset": 0,
+              "slot": "0",
+              "type": "t_uint256",
+              "contract": "Box",
+              "src": "contracts/Box.sol:6"
+            }
+          ],
+          "types": {
+            "t_uint256": {
+              "label": "uint256",
+              "numberOfBytes": "32"
+            }
+          },
+          "layoutVersion": "1.1",
+          "flat": true
+        }
+      },
+      "BoxV2": {
+        "src": "contracts/BoxV2.sol:5",
+        "version": {
+          "withMetadata": "fd1969322129ae7e1de05f4295a1c7d79b069a0056bbbab069ebad64dc29fd83",
+          "withoutMetadata": "e04fcee9ff648633fe62d5729f644550a3f5d1e474ce922dbad0b02525d89837",
+          "linkedWithoutMetadata": "e04fcee9ff648633fe62d5729f644550a3f5d1e474ce922dbad0b02525d89837"
+        },
+        "inherit": [],
+        "libraries": [],
+        "methods": [
+          "incre()"
+        ],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [
+            {
+              "label": "val",
+              "offset": 0,
+              "slot": "0",
+              "type": "t_uint256",
+              "contract": "BoxV2",
+              "src": "contracts/BoxV2.sol:6"
+            }
+          ],
+          "types": {
+            "t_uint256": {
+              "label": "uint256",
+              "numberOfBytes": "32"
+            }
+          },
+          "layoutVersion": "1.1",
+          "flat": true
+        }
+      }
+    }
+  ]
+}
