@@ -316,7 +316,10 @@ contract togLoan {
 
     //@Borrower -- withdraw tokens after payment of loan 
     function withdrawTokensBorrower()external isborrower{
+        require(!LPnfts.exists,"TOGGE: ALREADY_MINT");
+        require(indexing[msg.sender] != address(0),"TOGGE: NO_LP_POSITION");
 
+        LPnfts.mint(msg.sender,indexing[msg.sender],posiciones[msg.sender]);
     }
 
     //@Liquidator call to start liquidation auction 
