@@ -92,14 +92,11 @@ contract togLoan {
     uint public totalLoan;
 
 
-
-    // $$$$ MUST CHANGE NAMES $$$$
-
     // amount paid 
-    uint public valorDAORecibido = 0;
+    uint public valueDAORecieved = 0;
 
     // amount withdrawn
-    uint public valorRetiroLPs = 0;
+    uint public LPRetiredFunds = 0;
 
     // current lp index
     uint public currentIndex = 0;
@@ -108,7 +105,7 @@ contract togLoan {
     mapping(address=>uint) indexing;
 
     // deposit balance by LP 
-    mapping(address=>uint) posiciones;
+    mapping(address=>uint) positions;
 
     // lp seniority manager
     uint[] public accum;
@@ -125,7 +122,6 @@ contract togLoan {
     ERC721 public LPnfts;
 
 
-
     // caller is 
     modifier isBorrower(){
         require(msg.sender == borrower);
@@ -133,7 +129,7 @@ contract togLoan {
     }
 
     // caller is admin 
-    modifier isadmin(){
+    modifier isAdmin(){
         require(msg.sender == admin);
         _;
     }
@@ -194,8 +190,8 @@ contract togLoan {
         uint _currentTime = block.timestamp;
         require(_currentTime > startOfRaise && _currentTime < endOfRaise,"TOGGE: OUT_OF_TIME_WINDOW");
 
-        require(posiciones[msg.sender]==0,"already deposited");
-        posiciones[msg.sender] += msg.value;
+        require(positions[msg.sender]==0,"already deposited");
+        positions[msg.sender] += msg.value;
         if(accum.length!=0){
             uint temp = accum[currentIndex++]+msg.value;
             accum.push(temp);
@@ -234,12 +230,12 @@ contract togLoan {
     function withdrawFailedDeposits() external { 
 
         require(!loanAccepted,"TOGGE: LOAN_ACCEPTED");
-        require(posiciones[msg.sender]!= 0,"TOGGE: NO_VALUE");
+        require(positions[msg.sender]!= 0,"TOGGE: NO_VALUE");
 
  
         
-        uint _deposit = posiciones[msg.sender];
-        posiciones[msg.sender] = 0;
+        uint _deposit = positions[msg.sender];
+        positions[msg.sender] = 0;
         (bool sent, ) =  payable(msg.sender).call{value: _deposit}("");
         require(sent, "TOGGE: FAILED_SEND");
     }
@@ -257,7 +253,7 @@ contract togLoan {
         }
      
 
-        // mint nft and save the posiciones balance in a balance mapping in ggeth 
+        // mint nft and save the positions balance in a balance mapping in ggeth 
     }
 
 
@@ -265,27 +261,27 @@ contract togLoan {
     // @LP - withdraw deposit + interest 
     function withdraw()external{
         uint index = indexing[msg.sender];
-        bool primero = index==0&&accum[index]<=valorDAORecibido-valorRetiroLPs;
+        bool primero = index==0&&accum[index]<=valueDAORecieved-LPRetiredFunds;
         bool segundo = true;
         uint yaSaco = 0;
         if(index>0){
-            segundo = accum[index-1]<valorDAORecibido-valorRetiroLPs;//
-            yaSaco = accum[index] - accum[index-1] - posiciones[msg.sender];
+            segundo = accum[index-1]<valueDAORecieved-LPRetiredFunds;//
+            yaSaco = accum[index] - accum[index-1] - LPnfts[msg.sender].getValue(msg.sender);
         }
         require(segundo||primero,"not eligible");
-        require(posiciones[msg.sender]>0,"insufficient Funds");
+        require(LPnfts[msg.sender].getValue(msg.sender)>0,"insufficient Funds");
         uint min=0;
 
         if(index>0){//si la diferencia es menor a lo que tiene el LP, entonces que el valor que pueda retirar sea esa diferencia menoor
-            require(accum[index-1]+yaSaco<valorDAORecibido,"can't withdraw more");
-            min =valorDAORecibido-accum[index-1]<posiciones[msg.sender]?valorDAORecibido-accum[index-1]:posiciones[msg.sender];
+            require(accum[index-1]+yaSaco<valueDAORecieved,"can't withdraw more");
+            min =valueDAORecieved-accum[index-1]<LPnfts[msg.sender].getValue(msg.sender)?valueDAORecieved-accum[index-1]:LPnfts[msg.sender].getValue(msg.sender);
         }
-        uint cantidadARetirar = index == 0?posiciones[msg.sender]:min;
+        uint cantidadARetirar = index == 0?LPnfts[msg.sender].getValue(msg.sender):min;
         //cantidad ARetirar debe ser menor
-        require(cantidadARetirar<=valorDAORecibido);
-        posiciones[msg.sender]-=cantidadARetirar;
+        require(cantidadARetirar<=valueDAORecieved);
+        LPnfts[msg.sender].getValue(msg.sender)-=cantidadARetirar;
         emit Withdraw(msg.sender,cantidadARetirar);
-        emit Withdraw(msg.sender,posiciones[msg.sender]);
+        emit Withdraw(msg.sender,LPnfts[msg.sender].getValue(msg.sender));
         if(index>0)
             emit Withdraw(msg.sender,accum[index-1]);
         if(cantidadARetirar>0)
@@ -313,26 +309,17 @@ contract togLoan {
 
     }
 
-
     //@Borrower -- withdraw tokens after payment of loan 
     function withdrawTokensBorrower()external isborrower{
         require(!LPnfts.exists,"TOGGE: ALREADY_MINT");
         require(indexing[msg.sender] != address(0),"TOGGE: NO_LP_POSITION");
 
-        LPnfts.mint(msg.sender,indexing[msg.sender],posiciones[msg.sender]);
+        LPnfts.mint(msg.sender,indexing[msg.sender],positions[msg.sender]);
     }
 
     //@Liquidator call to start liquidation auction 
-    function startAuction() external {
-
-        
-
+    function startAuction(_startingPrice,_discountRate) external isAdmin{
+        auction = new DutchAuction(_startingPrice,msg.sender,_discountRate);
     }
-
-    
-
-
-
-
 
 }
