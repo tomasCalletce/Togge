@@ -266,22 +266,22 @@ contract togLoan {
         uint yaSaco = 0;
         if(index>0){
             segundo = accum[index-1]<valueDAORecieved-LPRetiredFunds;//
-            yaSaco = accum[index] - accum[index-1] - LPnfts[msg.sender].getValue(msg.sender);
+            yaSaco = accum[index] - accum[index-1] - LPnfts.getValue(msg.sender);
         }
         require(segundo||primero,"not eligible");
-        require(LPnfts[msg.sender].getValue(msg.sender)>0,"insufficient Funds");
+        require(LPnfts.getValue(msg.sender)>0,"insufficient Funds");
         uint min=0;
 
         if(index>0){//si la diferencia es menor a lo que tiene el LP, entonces que el valor que pueda retirar sea esa diferencia menoor
             require(accum[index-1]+yaSaco<valueDAORecieved,"can't withdraw more");
-            min =valueDAORecieved-accum[index-1]<LPnfts[msg.sender].getValue(msg.sender)?valueDAORecieved-accum[index-1]:LPnfts[msg.sender].getValue(msg.sender);
+            min =valueDAORecieved-accum[index-1]<LPnfts.getValue(msg.sender)?valueDAORecieved-accum[index-1]:LPnfts.getValue(msg.sender);
         }
-        uint cantidadARetirar = index == 0?LPnfts[msg.sender].getValue(msg.sender):min;
+        uint cantidadARetirar = index == 0?LPnfts.getValue(msg.sender):min;
         //cantidad ARetirar debe ser menor
         require(cantidadARetirar<=valueDAORecieved);
-        LPnfts[msg.sender].getValue(msg.sender)-=cantidadARetirar;
+        LPnfts.getValue(msg.sender)-=cantidadARetirar;
         emit Withdraw(msg.sender,cantidadARetirar);
-        emit Withdraw(msg.sender,LPnfts[msg.sender].getValue(msg.sender));
+        emit Withdraw(msg.sender,LPnfts.getValue(msg.sender));
         if(index>0)
             emit Withdraw(msg.sender,accum[index-1]);
         if(cantidadARetirar>0)
