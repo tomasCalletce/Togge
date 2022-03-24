@@ -9,8 +9,6 @@ contract ggETH is ERC721 {
 
     address admin;
 
-
-
     constructor(
         string memory name,
         string memory symbol
@@ -21,6 +19,7 @@ contract ggETH is ERC721 {
         require(msg.sender == admin,"TOGGE::mint: NOT_ADMIN");
         _mint(_account,_amount);
     }
+
 
 }
 

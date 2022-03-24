@@ -20,6 +20,7 @@ contract togLoan {
 
     event ethWithdrawBorrower(uint _value);
 
+
     // $$$$ MUST CHANGE NAMES $$$$
 
     event Deposit(address,uint);
@@ -30,9 +31,26 @@ contract togLoan {
 
     event balance(uint);
 
-
-
     // $$$$ MUST CHANGE NAMES $$$$
+
+
+
+    struct Payment {
+        
+        // percent of total borrowed as decimal * 10^18
+        uint percet;
+
+        // state of payment
+        bool complete;
+
+        // max date for payment 
+        uint maxDate;
+
+        // pending val
+        uint val;
+
+    }
+
 
     // loan accepted 
     bool public loanAccepted;
@@ -64,10 +82,18 @@ contract togLoan {
     // eth supplied 
     uint public ethSupplied;
 
+    // index of current pending payment 
+    uint public pendingPayIndex;
+
+    // eth paid by borrower 
+    uint public loanPaid;
+
+    // eth loan with interest  
+    uint public totalLoan;
+
+
+
     // $$$$ MUST CHANGE NAMES $$$$
-
-
-
 
     // amount paid 
     uint public valorDAORecibido = 0;
@@ -85,15 +111,24 @@ contract togLoan {
     mapping(address=>uint) posiciones;
 
     // lp seniority manager
-    uint[] accum;
+    uint[] public accum;
 
     // $$$$ MUST CHANGE NAMES $$$$
 
+
+
+
+    // list of payment 
+    Payment[] public payments;
+
+    // LP nft contract 
     ERC721 public LPnfts;
-    
+
+
+
     // caller is 
     modifier isBorrower(){
-        require(msg.sender == dao);
+        require(msg.sender == borrower);
         _;
     }
 
@@ -110,8 +145,12 @@ contract togLoan {
         uint _reserveFactorMantissa,
         address _borrower,
         address _borrowerToken,
-        address _admin
+        address _admin,
+        uint[] memory maxPaymentDates,
+        uint[] memory paymentPercent
     ){
+
+        require(maxPaymentDates.length == paymentPercent.length,"TOGGE: WRONG_PARAMS");
         poolSupplyMax = _poolSupplyMax;
         numberBorrowerTokens = _numberBorrowerTokens;
         borrower = _borrower;
@@ -119,6 +158,17 @@ contract togLoan {
         reserveFactorMantissa = _reserveFactorMantissa;
 
         admin = _admin;
+
+        for(uint tt = 0; tt < paymentPercent.length;tt++){
+            Payment memory pay = new Payment({
+                percet : paymentPercent[tt],
+                maxDate : maxPaymentDates[tt],
+                complete : false
+            });
+            payments.push(pay);
+        }
+        
+
     }
 
 
@@ -201,6 +251,10 @@ contract togLoan {
 
         uint _currentTime = block.timestamp;
         require(_currentTime > endBorrowerAcceptWindow,"TOGGE: OUT_OF_TIME_WINDOW");
+
+        for(uint tt = 0; tt < paymentPercent.length;tt++){
+            payments[tt].val = payments[tt].percet*totalLoan*(10e-18);
+        }
      
 
         // mint nft and save the posiciones balance in a balance mapping in ggeth 
@@ -241,13 +295,34 @@ contract togLoan {
 
 
     //@Borrower make loan payment 
-    function makeLoanPayment()external{
-       
+    function makeLoanPayment() external isBorrower{
+        
+       uint _val = msg.val;
+       require(_val > 0,"TOGGE: NO_VAL");
+       require(_cpay.val >=_val,"TOGGE: EXCESS-PAYMENT");
+
+       Payment memory _cpay = payments[pendingPayIndex];
+
+       if(_cpay.val == _val){
+           _cpay.complete = true;
+           pendingPayIndex++;
+       }else if(_cpay.val < _val){
+           _cpay.val -= _val;
+       }
+
+
     }
 
 
     //@Borrower -- withdraw tokens after payment of loan 
     function withdrawTokensBorrower()external isborrower{
+
+    }
+
+    //@Liquidator call to start liquidation auction 
+    function startAuction() external {
+
+        
 
     }
 
