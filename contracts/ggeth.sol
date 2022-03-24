@@ -1,4 +1,3 @@
-// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.7;
 
 
@@ -8,6 +7,7 @@ import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 contract ggETH is ERC721 {
 
     address admin;
+
     mapping(address => uint) public lpBalance;
 
     constructor(
@@ -33,7 +33,8 @@ contract ggETH is ERC721 {
         return _exists(_id);
     }
 
+    function getValue(address _owner) public returns(uint value){
+        return lpBalance[_owner];
+    }
 
 }
-
-
