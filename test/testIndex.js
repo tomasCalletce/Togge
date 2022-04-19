@@ -5,6 +5,9 @@ function multe18(num ){
     return ethers.utils.parseUnits(String(num)); 
 }
 
+function timeout(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
 
 
 describe("Togge", function () {
@@ -116,7 +119,7 @@ describe("Togge", function () {
 
         it("lp deposit saved", async function () {
             try {
-                const res = await ggLoan.deposits(lp.address);
+                const res = await ggLoan.connect(lp).deposits(lp.address);
                 expect(ethers.utils.formatEther(res) === 4.0)
 
             } catch (error) {
@@ -124,10 +127,7 @@ describe("Togge", function () {
             }
         })
 
-        it("can withdraw daoTokens", async function () {
-            function timeout(ms) {
-                return new Promise(resolve => setTimeout(resolve, ms));
-            }
+        it("can withdraw loan assets", async function () {
             await timeout(24000);
             await ggLoan.connect(dao).acceptLoanWithdrawLoan('nftDao','DAO')
             
@@ -141,7 +141,16 @@ describe("Togge", function () {
             
         })
 
-        
+        it("withdraw lpNFT", async function () {
+            await timeout(11000);
+            await ggLoan.connect(lp).withdrawLPtoken();
+        })
+
+      
+
+
+
+
 
 
 

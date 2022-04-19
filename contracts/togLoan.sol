@@ -204,7 +204,7 @@ contract togLoan {
   
     // LP -- mint lp token
     function withdrawLPtoken() external {
-        require(!loanAccepted, "TOGGE: LOAN_NOT_ACCEPTED");
+        require(loanAccepted, "TOGGE: LOAN_NOT_ACCEPTED");
         require(deposits[msg.sender] != 0, "TOGGE: NO_VALUE");
         require(!nftClaimed[msg.sender],"TOGGE: ClAIMED");
 

@@ -5,17 +5,18 @@ import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 
 contract ggETH is ERC721 {
 
-    address admin;
+    address ggLoan;
+
 
     mapping(uint => uint) public deposits;
 
-    constructor(string memory name, string memory symbol)
-        ERC721(name, symbol)
-    {}
+    constructor(string memory _name, string memory _symbol) public ERC721(_name,_symbol){
+    }
 
     function mint(address _account,uint tokenId,uint deposit) external {
-        require(msg.sender == admin, "TOGGE::mint: NOT_ADMIN");
+        require(msg.sender == ggLoan, "TOGGE::mint: NOT_ADMIN");
         _mint(_account,tokenId);
         deposits[tokenId] = deposit;
+
     }
 }

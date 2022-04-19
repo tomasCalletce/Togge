@@ -262,8 +262,8 @@
       ]
     },
     "/Users/tomascalle/Documents/GitHub/Togge/contracts/togLoan.sol": {
-      "lastModificationDate": 1650396791358,
-      "contentHash": "b7a61dd8e636d1f7ff6e28e41e7f8ff8",
+      "lastModificationDate": 1650400866482,
+      "contentHash": "65baeec12e08a0f59138ae7058e5ec9f",
       "sourceName": "contracts/togLoan.sol",
       "solcConfig": {
         "version": "0.8.4",
@@ -303,8 +303,8 @@
       ]
     },
     "/Users/tomascalle/Documents/GitHub/Togge/contracts/ggeth.sol": {
-      "lastModificationDate": 1650395936015,
-      "contentHash": "d20128dce08b7010b98a75dcfdf21ffc",
+      "lastModificationDate": 1650400589174,
+      "contentHash": "e6982812d0a691d8c8487073867a4916",
       "sourceName": "contracts/ggeth.sol",
       "solcConfig": {
         "version": "0.8.4",
