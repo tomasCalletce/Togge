@@ -7,14 +7,15 @@ contract ggETH is ERC721 {
 
     address admin;
 
-    mapping(address => uint) public deposits;
+    mapping(uint => uint) public deposits;
 
     constructor(string memory name, string memory symbol)
         ERC721(name, symbol)
     {}
 
-    function mint(address _account,uint _amount) external {
+    function mint(address _account,uint tokenId,uint deposit) external {
         require(msg.sender == admin, "TOGGE::mint: NOT_ADMIN");
-        _mint(_account, _amount);
+        _mint(_account,tokenId);
+        deposits[tokenId] = deposit;
     }
 }

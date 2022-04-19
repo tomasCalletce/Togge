@@ -40,49 +40,55 @@ contract togLoan {
     address public borrower;
 
     // promised number of borrower tokens
-    uint256 public numberBorrowerTokens;
+    uint public numberBorrowerTokens;
 
     // max supply eth
-    uint256 public poolSupplyMax;
+    uint public poolSupplyMax;
 
     // time limit supply ETH to vault
-    uint256 public endOfRaise;
+    uint public endOfRaise;
 
     // time start supply ETH to vault
-    uint256 public startOfRaise;
+    uint public startOfRaise;
 
     // end time for DAO to accept loan
-    uint256 public endBorrowerAcceptWindow;
+    uint public endBorrowerAcceptWindow;
 
     // eth supplied
-    uint256 public ethSupplied;
+    uint public ethSupplied;
 
     // $$$$ MUST CHANGE NAMES $$$$
 
     // amount paid
-    uint256 public valorDAORecibido = 0;
+    uint public valorDAORecibido = 0;
 
     // amount withdrawn
-    uint256 public valorRetiroLPs = 0;
+    uint public valorRetiroLPs = 0;
 
     // current lp index
-    uint256 public currentIndex = 0;
+    uint public currentIndex = 0;
 
     //reserveFactorMantissa
-    uint256 public reserveFactorMantissa;
+    uint public reserveFactorMantissa;
+
+    //lp nft counter 
+    uint public nftCounter;
 
     //index order of each LP
-    mapping(address => uint256) public  indexing;
+    mapping(address => uint) public  indexing;
 
     // deposit balance by LP
-    mapping(address => uint256) public  deposits;
+    mapping(address => uint) public  deposits;
+
+    //lp nft claimed
+    mapping(address => bool) public nftClaimed;
 
     // lp seniority manager
-    uint256[] accum;
+    uint[] accum;
 
     // $$$$ MUST CHANGE NAMES $$$$
 
-    ERC721 public LPnfts;
+    ggETH public LPnfts;
 
     // caller is
     modifier isBorrower() {
@@ -181,6 +187,7 @@ contract togLoan {
     //@System -- create LP token
     function createLPtoken(string memory _name, string memory _symbol) internal {
         LPnfts = new ggETH(_name, _symbol);
+        
     }
 
     //@LP -- withdarw deposit if failed loan
@@ -199,6 +206,7 @@ contract togLoan {
     function withdrawLPtoken() external {
         require(!loanAccepted, "TOGGE: LOAN_NOT_ACCEPTED");
         require(deposits[msg.sender] != 0, "TOGGE: NO_VALUE");
+        require(!nftClaimed[msg.sender],"TOGGE: ClAIMED");
 
         uint256 _currentTime = block.timestamp;
         require(
@@ -206,7 +214,9 @@ contract togLoan {
             "TOGGE: OUT_OF_TIME_WINDOW"
         );
 
-        // mint nft and save the deposits balance in a balance mapping in ggeth
+        nftClaimed[msg.sender] = true;
+        LPnfts.mint(msg.sender,nftCounter,deposits[msg.sender]);
+        nftCounter++;
     }
 
     // @LP - withdraw deposit + interest
