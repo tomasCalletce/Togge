@@ -138,7 +138,7 @@ contract togLoan {
     function LP_deposit() external payable {
         require(msg.sender != borrower, "TOGGE: BORROWER_FORBIDDEN");
 
-        uint256 _currentTime = block.timestamp;
+        uint _currentTime = block.timestamp;
         require(
             _currentTime > startOfRaise && _currentTime < endOfRaise,
             "TOGGE: OUT_OF_TIME_WINDOW"
@@ -182,9 +182,7 @@ contract togLoan {
     }
 
     //@System -- create LP token
-    function createLPtoken(string memory _name, string memory _symbol)
-        internal
-    {
+    function createLPtoken(string memory _name, string memory _symbol) internal {
         LPnfts = new ggETH(_name, _symbol);
     }
 
@@ -199,20 +197,20 @@ contract togLoan {
         require(sent, "TOGGE: FAILED_SEND");
     }
 
-    //BULLSHIT
-    // // LP -- mint lp token
-    // function withdrawLPtoken() external {
-    //     require(!loanAccepted, "TOGGE: LOAN_NOT_ACCEPTED");
-    //     require(deposits[msg.sender] != 0, "TOGGE: NO_VALUE");
+  
+    // LP -- mint lp token
+    function withdrawLPtoken() external {
+        require(!loanAccepted, "TOGGE: LOAN_NOT_ACCEPTED");
+        require(deposits[msg.sender] != 0, "TOGGE: NO_VALUE");
 
-    //     uint256 _currentTime = block.timestamp;
-    //     require(
-    //         _currentTime > endBorrowerAcceptWindow,
-    //         "TOGGE: OUT_OF_TIME_WINDOW"
-    //     );
+        uint256 _currentTime = block.timestamp;
+        require(
+            _currentTime > endBorrowerAcceptWindow,
+            "TOGGE: OUT_OF_TIME_WINDOW"
+        );
 
-    //     // mint nft and save the deposits balance in a balance mapping in ggeth
-    // }
+        // mint nft and save the deposits balance in a balance mapping in ggeth
+    }
 
     // @LP - withdraw deposit + interest
     function withdraw() external {
