@@ -126,8 +126,8 @@ contract togLoan {
         emit borrowerTokenDeposited(_value, address(this));
 
         startOfRaise = block.timestamp;
-        endOfRaise = startOfRaise + 24 hours;
-        endBorrowerAcceptWindow = endOfRaise + 4 hours;
+        endOfRaise = startOfRaise + 24 seconds;
+        endBorrowerAcceptWindow = endOfRaise + 10 seconds;
         emit supplyVaultNowOpen(endOfRaise);
     }
 

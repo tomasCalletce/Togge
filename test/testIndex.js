@@ -24,6 +24,8 @@ describe("Togge", function () {
 
     let xToken;
 
+    let lpNFT;
+
     before(async function () {
         [dao,lp,admin,user] = await ethers.getSigners();
         daoTokenContract = await ethers.getContractFactory("DaoToken");
@@ -46,7 +48,7 @@ describe("Togge", function () {
             await LoanMaker.createLoan(multe18(1000),multe18(100),multe18(1), dao.address, daoToken.address, admin.address);
             const ggLoanAddress = await LoanMaker.allLoans(0);
             const loanContractOBJ = await hre.ethers.getContractFactory('togLoan');
-            ggLoan = await await loanContractOBJ.attach(ggLoanAddress);
+            ggLoan = await loanContractOBJ.attach(ggLoanAddress);
             expect(ggLoan)
         })
     
@@ -71,6 +73,16 @@ describe("Togge", function () {
         it("deposit dao tokens", async function () {
             expect(await ggLoan.connect(dao).depositTokens(multe18(100)));
         })
+
+        it("can't withdraw daoTokens before raised period", async function () {
+            try {
+                await ggLoan.connect(dao).acceptLoanWithdrawLoan('nftDao','DAO')
+            } catch (error) {
+                expect(true)
+            }
+        })
+
+        
 
         it("can't input different value of daoTokens", async function () {
             try {
@@ -111,6 +123,24 @@ describe("Togge", function () {
                 expect(true);
             }
         })
+
+        it("can withdraw daoTokens", async function () {
+            function timeout(ms) {
+                return new Promise(resolve => setTimeout(resolve, ms));
+            }
+            await timeout(24000);
+            await ggLoan.connect(dao).acceptLoanWithdrawLoan('nftDao','DAO')
+            
+        })
+
+        it("lp nft created", async function () {
+            const lpNFTadress = await ggLoan.LPnfts();
+            const lpNftOBJ = await hre.ethers.getContractFactory('ggETH');
+            lpNFT = await lpNftOBJ.attach(lpNFTadress);
+            expect(lpNFT)
+            
+        })
+
 
 
         
