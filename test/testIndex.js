@@ -34,8 +34,8 @@ describe("Togge", async function () {
         LoanMaker = await LoanMakerContract.deploy();
         await LoanMaker.deployed();
         const ggLoanIndex =  await LoanMaker.createLoan(multe18(1000),multe18(100),multe18(1), dao.address, daoToken.address, admin.address);
-        const ggLoanIndexVal = ethers.BigNumber.from(ggLoanIndex.value);
-        console.log(ethers.utils.formatEther(ggLoanIndexVal));
+        //const ggLoanIndexVal = ethers.BigNumber.toNumber(ggLoanIndex.value);
+        console.log(ggLoanIndexVal);
     })
 
     it("deposit DAO tokens", async function () {
