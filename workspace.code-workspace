@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"name": "contracts",
+			"path": "../../../Solidity/projects/Togge/contracts"
+		},
+		{
+			"name": "Software",
+			"path": "."
+		}
+	],
+	"settings": {}
+}
