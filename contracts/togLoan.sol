@@ -39,9 +39,6 @@ contract togLoan {
     // borrower address
     address public borrower;
 
-    //address of dao
-    address public dao;
-
     // promised number of borrower tokens
     uint256 public numberBorrowerTokens;
 
@@ -89,13 +86,13 @@ contract togLoan {
 
     // caller is
     modifier isBorrower() {
-        require(msg.sender == dao);
+        require(msg.sender == borrower,"TOGGE: prohibited");
         _;
     }
 
     // caller is admin
     modifier isadmin() {
-        require(msg.sender == admin);
+        require(msg.sender == admin,"TOGGE: prohibited");
         _;
     }
 

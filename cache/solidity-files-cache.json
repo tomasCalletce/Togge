@@ -262,8 +262,8 @@
       ]
     },
     "/Users/tomascalle/Documents/GitHub/Togge/contracts/togLoan.sol": {
-      "lastModificationDate": 1650337702787,
-      "contentHash": "2f25ca3a28e32d4869e25e5dca617eed",
+      "lastModificationDate": 1650372963931,
+      "contentHash": "0eea798fd9f1d9e0e63e1d4ad29c7881",
       "sourceName": "contracts/togLoan.sol",
       "solcConfig": {
         "version": "0.8.4",
@@ -751,6 +751,44 @@
       ],
       "artifacts": [
         "DutchAuction"
+      ]
+    },
+    "/Users/tomascalle/Documents/GitHub/Togge/contracts/xToken.sol": {
+      "lastModificationDate": 1650373409333,
+      "contentHash": "cffb6edd00aeafcad952426f395143e1",
+      "sourceName": "contracts/xToken.sol",
+      "solcConfig": {
+        "version": "0.8.4",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts/token/ERC20/ERC20.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.4"
+      ],
+      "artifacts": [
+        "xToeken"
       ]
     }
   }
