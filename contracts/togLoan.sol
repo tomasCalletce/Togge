@@ -72,10 +72,10 @@ contract togLoan {
     uint256 public reserveFactorMantissa;
 
     //index order of each LP
-    mapping(address => uint256) indexing;
+    mapping(address => uint256) public  indexing;
 
     // deposit balance by LP
-    mapping(address => uint256) deposits;
+    mapping(address => uint256) public  deposits;
 
     // lp seniority manager
     uint256[] accum;
@@ -162,7 +162,7 @@ contract togLoan {
         external
         isBorrower
     {
-        uint256 _currentTime = block.timestamp;
+        uint _currentTime = block.timestamp;
         require(
             _currentTime > endOfRaise && _currentTime < endBorrowerAcceptWindow,
             "TOGGE: OUT_OF_TIME_WINDOW"

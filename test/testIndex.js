@@ -51,7 +51,7 @@ describe("Togge", function () {
         })
     
         it("ggLoan can spend daoTokens", async function () {
-           await daoToken.connect(dao).approve(ggLoan.address,multe18(100));
+           await daoToken.connect(dao).approve(ggLoan.address,multe18(500));
            const allowence = await daoToken.connect(dao).allowance(dao.address,ggLoan.address);
            expect(ethers.utils.formatEther(allowence) === 500.0);
         })
@@ -60,32 +60,69 @@ describe("Togge", function () {
 
     describe("togLoan",function(){
 
+        it("lp can't deposit before start of raise", async function () {
+            try {
+                await ggLoan.connect(lp).LP_deposit({value: ethers.utils.parseEther("4.0")});
+            } catch (error) {
+                expect(true);
+            }
+        })
+
         it("deposit dao tokens", async function () {
             expect(await ggLoan.connect(dao).depositTokens(multe18(100)));
         })
 
-        it("different value of daoTokens", async function () {
+        it("can't input different value of daoTokens", async function () {
             try {
-                await ggLoan.connect(dao).depositTokens(multe18(10))
+                await ggLoan.connect(dao).depositTokens(multe18(10));
             } catch (error) {
                 expect(true);
             }
         })
 
-        it("deposit ", async function () {
+        it("cant`t deposit dao tokens with no permission given", async function () {
+            await daoToken.connect(dao).approve(ggLoan.address,multe18(0));
             try {
-                await ggLoan.connect(dao).depositTokens(multe18(10))
+                await ggLoan.connect(dao).depositTokens(multe18(100));
             } catch (error) {
                 expect(true);
             }
         })
+
+        it("lp deposit", async function () {
+            const res = await ggLoan.connect(lp).LP_deposit({value: ethers.utils.parseEther("4.0")})
+            expect(res);
+        })
+
+        it("lp cant't deposit twice deposit", async function () {
+            try {
+                await ggLoan.connect(lp).LP_deposit({value: ethers.utils.parseEther("4.0")});
+            } catch (error) {
+                expect(true);
+            }
+        })
+
+        it("lp deposit saved", async function () {
+            try {
+                const res = await ggLoan.deposits(lp.address);
+                expect(ethers.utils.formatEther(res) === 4.0)
+
+            } catch (error) {
+                expect(true);
+            }
+        })
+
+
+        
+
+
+
+        
+
+
+
 
     })
-
-
-
-  
- 
 
 })
 

@@ -262,8 +262,8 @@
       ]
     },
     "/Users/tomascalle/Documents/GitHub/Togge/contracts/togLoan.sol": {
-      "lastModificationDate": 1650372963931,
-      "contentHash": "0eea798fd9f1d9e0e63e1d4ad29c7881",
+      "lastModificationDate": 1650375590667,
+      "contentHash": "5c2f185d52b00c7d1dff56aefe4ce09a",
       "sourceName": "contracts/togLoan.sol",
       "solcConfig": {
         "version": "0.8.4",
