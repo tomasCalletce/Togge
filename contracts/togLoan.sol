@@ -5,9 +5,10 @@ import "./ggeth.sol";
 import "./InterestRateModel.sol";
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 
-contract togLoanStorage {}
 
-contract togLoan {
+
+contract togLoanStorage {
+
     // open vault to investors
     event borrowerTokenDeposited(uint256 _amount, address borrower);
 
@@ -16,7 +17,6 @@ contract togLoan {
     event ethWithdrawBorrower(uint256 _value);
 
     // $$$$ MUST CHANGE NAMES $$$$
-
     event Deposit(address, uint256);
 
     event ArrayVal(uint256);
@@ -30,8 +30,8 @@ contract togLoan {
     // loan accepted
     bool public loanAccepted;
 
-    // Loan Maker / admin
-    address public immutable admin;
+    // Loan Maker admin
+    address public  admin;
 
     // borrower governance token
     address public borrowerToken;
@@ -56,6 +56,7 @@ contract togLoan {
 
     // eth supplied
     uint public ethSupplied;
+
 
     // $$$$ MUST CHANGE NAMES $$$$
 
@@ -90,7 +91,16 @@ contract togLoan {
 
     ggETH public LPnfts;
 
-    // caller is
+}
+
+
+
+
+
+
+contract togLoan is togLoanStorage{
+    
+    // caller is dao
     modifier isBorrower() {
         require(msg.sender == borrower,"TOGGE: prohibited");
         _;

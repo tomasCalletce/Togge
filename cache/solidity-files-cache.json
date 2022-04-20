@@ -262,8 +262,8 @@
       ]
     },
     "/Users/tomascalle/Documents/GitHub/Togge/contracts/togLoan.sol": {
-      "lastModificationDate": 1650400866482,
-      "contentHash": "65baeec12e08a0f59138ae7058e5ec9f",
+      "lastModificationDate": 1650404117967,
+      "contentHash": "31c852f73ca33db525c837777a8e21b9",
       "sourceName": "contracts/togLoan.sol",
       "solcConfig": {
         "version": "0.8.4",
@@ -303,8 +303,8 @@
       ]
     },
     "/Users/tomascalle/Documents/GitHub/Togge/contracts/ggeth.sol": {
-      "lastModificationDate": 1650400589174,
-      "contentHash": "e6982812d0a691d8c8487073867a4916",
+      "lastModificationDate": 1650482924972,
+      "contentHash": "a90c3cd86870f94af824dce31d704575",
       "sourceName": "contracts/ggeth.sol",
       "solcConfig": {
         "version": "0.8.4",
@@ -789,6 +789,188 @@
       ],
       "artifacts": [
         "xToeken"
+      ]
+    },
+    "/Users/tomascalle/Documents/GitHub/Togge/contracts/togeV2/ggETHV2.sol": {
+      "lastModificationDate": 1650483004725,
+      "contentHash": "861a437bf637a344a38930416d8d22b9",
+      "sourceName": "contracts/togeV2/ggETHV2.sol",
+      "solcConfig": {
+        "version": "0.8.4",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts/token/ERC721/ERC721.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.4"
+      ],
+      "artifacts": [
+        "ggETHV2"
+      ]
+    },
+    "/Users/tomascalle/Documents/GitHub/Togge/contracts/togeV2/withdrawManagerV2.sol": {
+      "lastModificationDate": 1650482936031,
+      "contentHash": "8469cfeb64f0317a997aaa90f75403bc",
+      "sourceName": "contracts/togeV2/withdrawManagerV2.sol",
+      "solcConfig": {
+        "version": "0.8.4",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.4"
+      ],
+      "artifacts": [
+        "withdrawManager"
+      ]
+    },
+    "/Users/tomascalle/Documents/GitHub/Togge/contracts/togeV2/depositManager.sol": {
+      "lastModificationDate": 1650483185643,
+      "contentHash": "eaac4b65d7c2037e8e94700520474716",
+      "sourceName": "contracts/togeV2/depositManager.sol",
+      "solcConfig": {
+        "version": "0.8.4",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.4"
+      ],
+      "artifacts": [
+        "depositManager"
+      ]
+    },
+    "/Users/tomascalle/Documents/GitHub/Togge/contracts/togeV2/liquidityManager.sol": {
+      "lastModificationDate": 1650483062238,
+      "contentHash": "3929ae898d7a5e5ce6dbdfba7177837d",
+      "sourceName": "contracts/togeV2/liquidityManager.sol",
+      "solcConfig": {
+        "version": "0.8.4",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.4"
+      ],
+      "artifacts": [
+        "liquidityManager"
+      ]
+    },
+    "/Users/tomascalle/Documents/GitHub/Togge/contracts/togeV2/paymentManager.sol": {
+      "lastModificationDate": 1650483109241,
+      "contentHash": "6fa093fd8e6d784a287fdaa03880e8e2",
+      "sourceName": "contracts/togeV2/paymentManager.sol",
+      "solcConfig": {
+        "version": "0.8.4",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.4"
+      ],
+      "artifacts": [
+        "paymentManager"
       ]
     }
   }
