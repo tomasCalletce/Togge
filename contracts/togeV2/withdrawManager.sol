@@ -2,7 +2,7 @@
 pragma solidity ^0.8.4;
 
 
-contract paymentManager {
+contract withdrawManager {
 
     address ggLoan;
 
@@ -11,9 +11,8 @@ contract paymentManager {
     }
 
     modifier isggLoan(){
-        require(msg.sender == ggLoan,"paymentManager: NOT_GGLOAN");
+        require(msg.sender == ggLoan,"withdrawManager: NOT_GGLOAN");
         _;
     }
+    
 }
-
-
