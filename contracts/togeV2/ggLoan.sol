@@ -39,17 +39,11 @@ contract ggLoan {
         _;
     }
 
-    // function depositTokens(uint _value) external isBorrower {
-    //     depositManager.depositTokens(_value, Data.numberBorrowerTokens, Data.borrowerToken, Data.borrower, address(this));
-    //     Data.startOfRaise = block.timestamp;
-    //     Data.endOfRaise = Data.startOfRaise + 24 seconds;
-    //     Data.endBorrowerAcceptWindow = Data.endOfRaise + 10 seconds;
-    // }
+    function depositTokens(uint _value) external isBorrower {
+        depoManager.depositTokens(_value,dt.numberBorrowerTokens,dt.startOfRaise,dt.endOfRaise,dt.endBorrowerAcceptWindow,dt.borrowerToken,dt.borrower);
+    }
 
-    // //     // @LP -- supply eth to main vault
-    // // function LP_deposit() external payable {
-
-    // // }
+    
 
 
 

@@ -14,5 +14,4 @@ struct Data {
     mapping(address => uint256) indexing;
     mapping(address => uint256) deposits;
     uint256[] accum;
-    uint256[] accums;
 }
