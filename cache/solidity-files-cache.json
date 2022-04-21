@@ -828,8 +828,8 @@
       ]
     },
     "/Users/tomascalle/Documents/GitHub/Togge/contracts/togeV2/ggLoan.sol": {
-      "lastModificationDate": 1650549895777,
-      "contentHash": "210313fb1e3664aea450656248f06f08",
+      "lastModificationDate": 1650569072558,
+      "contentHash": "fc386d664137e1c823472d058ad4c9ea",
       "sourceName": "contracts/togeV2/ggLoan.sol",
       "solcConfig": {
         "version": "0.8.4",
@@ -856,7 +856,8 @@
         }
       },
       "imports": [
-        "./depoManager.sol"
+        "./depoManager.sol",
+        "./data.sol"
       ],
       "versionPragmas": [
         "^0.8.4"
@@ -976,8 +977,8 @@
       ]
     },
     "/Users/tomascalle/Documents/GitHub/Togge/contracts/togeV2/ggLoanMaker.sol": {
-      "lastModificationDate": 1650549819455,
-      "contentHash": "8ee4e6040b74b7988e7fc485b5b1365c",
+      "lastModificationDate": 1650569081725,
+      "contentHash": "47c885ebcd89af1cfdf5d39ea2bbe702",
       "sourceName": "contracts/togeV2/ggLoanMaker.sol",
       "solcConfig": {
         "version": "0.8.4",
@@ -1014,8 +1015,8 @@
       ]
     },
     "/Users/tomascalle/Documents/GitHub/Togge/contracts/togeV2/depoManager.sol": {
-      "lastModificationDate": 1650549845338,
-      "contentHash": "926273a9d38d343d936f0f75e4c279fb",
+      "lastModificationDate": 1650568294394,
+      "contentHash": "bb8fec938b6398a6418068c9130c50e0",
       "sourceName": "contracts/togeV2/depoManager.sol",
       "solcConfig": {
         "version": "0.8.4",
@@ -1050,6 +1051,40 @@
       "artifacts": [
         "depoManager"
       ]
+    },
+    "/Users/tomascalle/Documents/GitHub/Togge/contracts/togeV2/data.sol": {
+      "lastModificationDate": 1650568993640,
+      "contentHash": "928d828142b575a604b73ea8fcea4f6f",
+      "sourceName": "contracts/togeV2/data.sol",
+      "solcConfig": {
+        "version": "0.8.4",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.4"
+      ],
+      "artifacts": []
     }
   }
 }

@@ -23,8 +23,7 @@ contract ggLoanMaker{
         uint _reserveFactorMantissa,
         address _borrower,
         address _borrowerToken,
-        address _loanAdmin,
-        address _depositManager
+        address _loanAdmin
     ) external isadmin returns (uint) {
         uint _id = loans.length;
 
@@ -34,8 +33,7 @@ contract ggLoanMaker{
             _reserveFactorMantissa,
             _borrower,
             _borrowerToken,
-            _loanAdmin,
-            _depositManager
+            _loanAdmin
         );
 
         loans.push(_loan);

@@ -164,6 +164,737 @@
       "depoManager": {
         "src": "contracts/togeV2/depoManager.sol:7",
         "version": {
+          "withMetadata": "81c4e8c1c58c7d3b870b2dbc18353cdd3d0368be3257af918e3e9e32a390673d",
+          "withoutMetadata": "08d24783a787f8a51dea0c166bb6f91a4f0865e02d03d749f102d332e6ead0ff",
+          "linkedWithoutMetadata": "08d24783a787f8a51dea0c166bb6f91a4f0865e02d03d749f102d332e6ead0ff"
+        },
+        "inherit": [],
+        "libraries": [],
+        "methods": [],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.1",
+          "flat": false
+        }
+      },
+      "ggLoan": {
+        "src": "contracts/togeV2/ggLoan.sol:17",
+        "version": {
+          "withMetadata": "ee9f4c66bce74dfc0f1a43a433bf5605d16204bb2f31c6c83ddd07d2d4716d0a",
+          "withoutMetadata": "efe76693ae9caa987ade9f7608eae25845262e9f9cddcdcfbac7c17b4707b6ba",
+          "linkedWithoutMetadata": "efe76693ae9caa987ade9f7608eae25845262e9f9cddcdcfbac7c17b4707b6ba"
+        },
+        "inherit": [],
+        "libraries": [],
+        "methods": [
+          "(uint256,uint256,uint256,address,address,address)"
+        ],
+        "linkReferences": [],
+        "errors": [
+          {
+            "kind": "constructor",
+            "contract": "ggLoan",
+            "src": "contracts/togeV2/ggLoan.sol:21"
+          }
+        ],
+        "layout": {
+          "storage": [
+            {
+              "label": "dt",
+              "offset": 0,
+              "slot": "0",
+              "type": "t_struct(Data)744_storage",
+              "contract": "ggLoan",
+              "src": "contracts/togeV2/ggLoan.sol:19"
+            }
+          ],
+          "types": {
+            "t_address": {
+              "label": "address",
+              "numberOfBytes": "20"
+            },
+            "t_array(t_uint256)dyn_storage": {
+              "label": "uint256[]",
+              "numberOfBytes": "32"
+            },
+            "t_mapping(t_address,t_uint256)": {
+              "label": "mapping(address => uint256)",
+              "numberOfBytes": "32"
+            },
+            "t_struct(Data)744_storage": {
+              "label": "struct Data",
+              "members": [
+                {
+                  "label": "poolSupplyMax",
+                  "type": "t_uint256",
+                  "offset": 0,
+                  "slot": "0"
+                },
+                {
+                  "label": "numberBorrowerTokens",
+                  "type": "t_uint256",
+                  "offset": 0,
+                  "slot": "1"
+                },
+                {
+                  "label": "reserveFactorMantissa",
+                  "type": "t_uint256",
+                  "offset": 0,
+                  "slot": "2"
+                },
+                {
+                  "label": "endOfRaise",
+                  "type": "t_uint256",
+                  "offset": 0,
+                  "slot": "3"
+                },
+                {
+                  "label": "startOfRaise",
+                  "type": "t_uint256",
+                  "offset": 0,
+                  "slot": "4"
+                },
+                {
+                  "label": "endBorrowerAcceptWindow",
+                  "type": "t_uint256",
+                  "offset": 0,
+                  "slot": "5"
+                },
+                {
+                  "label": "borrower",
+                  "type": "t_address",
+                  "offset": 0,
+                  "slot": "6"
+                },
+                {
+                  "label": "borrowerToken",
+                  "type": "t_address",
+                  "offset": 0,
+                  "slot": "7"
+                },
+                {
+                  "label": "loanAdmin",
+                  "type": "t_address",
+                  "offset": 0,
+                  "slot": "8"
+                },
+                {
+                  "label": "indexing",
+                  "type": "t_mapping(t_address,t_uint256)",
+                  "offset": 0,
+                  "slot": "9"
+                },
+                {
+                  "label": "deposits",
+                  "type": "t_mapping(t_address,t_uint256)",
+                  "offset": 0,
+                  "slot": "10"
+                },
+                {
+                  "label": "accum",
+                  "type": "t_array(t_uint256)dyn_storage",
+                  "offset": 0,
+                  "slot": "11"
+                }
+              ],
+              "numberOfBytes": "384"
+            },
+            "t_uint256": {
+              "label": "uint256",
+              "numberOfBytes": "32"
+            }
+          },
+          "layoutVersion": "1.1",
+          "flat": true
+        }
+      },
+      "ggLoanMaker": {
+        "src": "contracts/togeV2/ggLoanMaker.sol:6",
+        "version": {
+          "withMetadata": "d737d7b6cb49f500633f74aa9b8e82778c6bfcba6e6523b4f8a310a904bfd89f",
+          "withoutMetadata": "57ed0a8c079de51c2dbf1852a1da17b3586f11b3a25a0a167b739428bbb4c42d",
+          "linkedWithoutMetadata": "57ed0a8c079de51c2dbf1852a1da17b3586f11b3a25a0a167b739428bbb4c42d"
+        },
+        "inherit": [],
+        "libraries": [],
+        "methods": [
+          "()",
+          "makeLoan(uint256,uint256,uint256,address,address,address)"
+        ],
+        "linkReferences": [],
+        "errors": [
+          {
+            "kind": "constructor",
+            "contract": "ggLoanMaker",
+            "src": "contracts/togeV2/ggLoanMaker.sol:11"
+          }
+        ],
+        "layout": {
+          "storage": [
+            {
+              "label": "admin",
+              "offset": 0,
+              "slot": "0",
+              "type": "t_address",
+              "contract": "ggLoanMaker",
+              "src": "contracts/togeV2/ggLoanMaker.sol:8"
+            },
+            {
+              "label": "loans",
+              "offset": 0,
+              "slot": "1",
+              "type": "t_array(t_contract(ggLoan)821)dyn_storage",
+              "contract": "ggLoanMaker",
+              "src": "contracts/togeV2/ggLoanMaker.sol:9"
+            }
+          ],
+          "types": {
+            "t_address": {
+              "label": "address",
+              "numberOfBytes": "20"
+            },
+            "t_array(t_contract(ggLoan)821)dyn_storage": {
+              "label": "contract ggLoan[]",
+              "numberOfBytes": "32"
+            },
+            "t_contract(ggLoan)821": {
+              "label": "contract ggLoan",
+              "numberOfBytes": "20"
+            }
+          },
+          "layoutVersion": "1.1",
+          "flat": true
+        }
+      }
+    },
+    {
+      "ERC20": {
+        "src": "@openzeppelin/contracts/token/ERC20/ERC20.sol:35",
+        "version": {
+          "withMetadata": "08295699790c674c5574539ced5280dbb163cab91795b07eb9175feafd7c5c02",
+          "withoutMetadata": "7e7a4d2dea64835b308c8a359c3029d74988a4318ba8ef4240ab30513edfd448",
+          "linkedWithoutMetadata": "7e7a4d2dea64835b308c8a359c3029d74988a4318ba8ef4240ab30513edfd448"
+        },
+        "inherit": [
+          "IERC20Metadata",
+          "IERC20",
+          "Context"
+        ],
+        "libraries": [],
+        "methods": [
+          "(string,string)",
+          "name()",
+          "symbol()",
+          "decimals()",
+          "totalSupply()",
+          "balanceOf(address)",
+          "transfer(address,uint256)",
+          "allowance(address,address)",
+          "approve(address,uint256)",
+          "transferFrom(address,address,uint256)",
+          "increaseAllowance(address,uint256)",
+          "decreaseAllowance(address,uint256)"
+        ],
+        "linkReferences": [],
+        "errors": [
+          {
+            "kind": "constructor",
+            "contract": "ERC20",
+            "src": "@openzeppelin/contracts/token/ERC20/ERC20.sol:54"
+          }
+        ],
+        "layout": {
+          "storage": [
+            {
+              "label": "_balances",
+              "offset": 0,
+              "slot": "0",
+              "type": "t_mapping(t_address,t_uint256)",
+              "contract": "ERC20",
+              "src": "@openzeppelin/contracts/token/ERC20/ERC20.sol:36"
+            },
+            {
+              "label": "_allowances",
+              "offset": 0,
+              "slot": "1",
+              "type": "t_mapping(t_address,t_mapping(t_address,t_uint256))",
+              "contract": "ERC20",
+              "src": "@openzeppelin/contracts/token/ERC20/ERC20.sol:38"
+            },
+            {
+              "label": "_totalSupply",
+              "offset": 0,
+              "slot": "2",
+              "type": "t_uint256",
+              "contract": "ERC20",
+              "src": "@openzeppelin/contracts/token/ERC20/ERC20.sol:40"
+            },
+            {
+              "label": "_name",
+              "offset": 0,
+              "slot": "3",
+              "type": "t_string_storage",
+              "contract": "ERC20",
+              "src": "@openzeppelin/contracts/token/ERC20/ERC20.sol:42"
+            },
+            {
+              "label": "_symbol",
+              "offset": 0,
+              "slot": "4",
+              "type": "t_string_storage",
+              "contract": "ERC20",
+              "src": "@openzeppelin/contracts/token/ERC20/ERC20.sol:43"
+            }
+          ],
+          "types": {
+            "t_address": {
+              "label": "address",
+              "numberOfBytes": "20"
+            },
+            "t_mapping(t_address,t_mapping(t_address,t_uint256))": {
+              "label": "mapping(address => mapping(address => uint256))",
+              "numberOfBytes": "32"
+            },
+            "t_mapping(t_address,t_uint256)": {
+              "label": "mapping(address => uint256)",
+              "numberOfBytes": "32"
+            },
+            "t_string_storage": {
+              "label": "string",
+              "numberOfBytes": "32"
+            },
+            "t_uint256": {
+              "label": "uint256",
+              "numberOfBytes": "32"
+            }
+          },
+          "layoutVersion": "1.1",
+          "flat": true
+        }
+      },
+      "IERC20": {
+        "src": "@openzeppelin/contracts/token/ERC20/IERC20.sol:9",
+        "inherit": [],
+        "libraries": [],
+        "methods": [
+          "totalSupply()",
+          "balanceOf(address)",
+          "transfer(address,uint256)",
+          "allowance(address,address)",
+          "approve(address,uint256)",
+          "transferFrom(address,address,uint256)"
+        ],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.1",
+          "flat": false
+        }
+      },
+      "IERC20Metadata": {
+        "src": "@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol:13",
+        "inherit": [
+          "IERC20"
+        ],
+        "libraries": [],
+        "methods": [
+          "name()",
+          "symbol()",
+          "decimals()"
+        ],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.1",
+          "flat": false
+        }
+      },
+      "Context": {
+        "src": "@openzeppelin/contracts/utils/Context.sol:16",
+        "inherit": [],
+        "libraries": [],
+        "methods": [],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.1",
+          "flat": false
+        }
+      },
+      "depoManager": {
+        "src": "contracts/togeV2/depoManager.sol:7",
+        "version": {
+          "withMetadata": "39e1f5f1ee9b098a3c344f31280a801ea4816e5f428b9f3e5b0ba54a13444c49",
+          "withoutMetadata": "25f31d62e62bddf6e4abad844c45734bd9c1b10b8573adeff35cffb5eae7dbac",
+          "linkedWithoutMetadata": "25f31d62e62bddf6e4abad844c45734bd9c1b10b8573adeff35cffb5eae7dbac"
+        },
+        "inherit": [],
+        "libraries": [],
+        "methods": [
+          "depositTokens(uint256,uint256,address,address,address)"
+        ],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.1",
+          "flat": false
+        }
+      },
+      "ggLoan": {
+        "src": "contracts/togeV2/ggLoan.sol:13",
+        "version": {
+          "withMetadata": "784ee4ae299560413f8e187b118fcc2a335eac61bdbf53aeae9f6659db4fe414",
+          "withoutMetadata": "94364ac6164af558e8f8d7baa27b3a4472ae31292ef20656e9e3d1219bba0e56",
+          "linkedWithoutMetadata": "94364ac6164af558e8f8d7baa27b3a4472ae31292ef20656e9e3d1219bba0e56"
+        },
+        "inherit": [],
+        "libraries": [],
+        "methods": [
+          "(uint256,uint256,uint256,address,address,address,address)",
+          "depositTokens(uint256)"
+        ],
+        "linkReferences": [],
+        "errors": [
+          {
+            "kind": "constructor",
+            "contract": "ggLoan",
+            "src": "contracts/togeV2/ggLoan.sol:34"
+          }
+        ],
+        "layout": {
+          "storage": [
+            {
+              "label": "poolSupplyMax",
+              "offset": 0,
+              "slot": "0",
+              "type": "t_uint256",
+              "contract": "ggLoan",
+              "src": "contracts/togeV2/ggLoan.sol:15"
+            },
+            {
+              "label": "numberBorrowerTokens",
+              "offset": 0,
+              "slot": "1",
+              "type": "t_uint256",
+              "contract": "ggLoan",
+              "src": "contracts/togeV2/ggLoan.sol:16"
+            },
+            {
+              "label": "reserveFactorMantissa",
+              "offset": 0,
+              "slot": "2",
+              "type": "t_uint256",
+              "contract": "ggLoan",
+              "src": "contracts/togeV2/ggLoan.sol:17"
+            },
+            {
+              "label": "endOfRaise",
+              "offset": 0,
+              "slot": "3",
+              "type": "t_uint256",
+              "contract": "ggLoan",
+              "src": "contracts/togeV2/ggLoan.sol:20"
+            },
+            {
+              "label": "startOfRaise",
+              "offset": 0,
+              "slot": "4",
+              "type": "t_uint256",
+              "contract": "ggLoan",
+              "src": "contracts/togeV2/ggLoan.sol:23"
+            },
+            {
+              "label": "endBorrowerAcceptWindow",
+              "offset": 0,
+              "slot": "5",
+              "type": "t_uint256",
+              "contract": "ggLoan",
+              "src": "contracts/togeV2/ggLoan.sol:26"
+            },
+            {
+              "label": "borrower",
+              "offset": 0,
+              "slot": "6",
+              "type": "t_address",
+              "contract": "ggLoan",
+              "src": "contracts/togeV2/ggLoan.sol:28"
+            },
+            {
+              "label": "borrowerToken",
+              "offset": 0,
+              "slot": "7",
+              "type": "t_address",
+              "contract": "ggLoan",
+              "src": "contracts/togeV2/ggLoan.sol:29"
+            },
+            {
+              "label": "loanAdmin",
+              "offset": 0,
+              "slot": "8",
+              "type": "t_address",
+              "contract": "ggLoan",
+              "src": "contracts/togeV2/ggLoan.sol:30"
+            },
+            {
+              "label": "depositManager",
+              "offset": 0,
+              "slot": "9",
+              "type": "t_contract(depoManager)753",
+              "contract": "ggLoan",
+              "src": "contracts/togeV2/ggLoan.sol:32"
+            }
+          ],
+          "types": {
+            "t_address": {
+              "label": "address",
+              "numberOfBytes": "20"
+            },
+            "t_contract(depoManager)753": {
+              "label": "contract depoManager",
+              "numberOfBytes": "20"
+            },
+            "t_uint256": {
+              "label": "uint256",
+              "numberOfBytes": "32"
+            }
+          },
+          "layoutVersion": "1.1",
+          "flat": true
+        }
+      },
+      "ggLoanMaker": {
+        "src": "contracts/togeV2/ggLoanMaker.sol:6",
+        "version": {
+          "withMetadata": "3775381d18a8e04b97cb7f5369ceac3fba761d1ece48135c34afbd69effbe612",
+          "withoutMetadata": "c8d6ce721fbf6171b9468aa9fa2351bf9d1c8d62eda4811d34e926a6552e2a9e",
+          "linkedWithoutMetadata": "c8d6ce721fbf6171b9468aa9fa2351bf9d1c8d62eda4811d34e926a6552e2a9e"
+        },
+        "inherit": [],
+        "libraries": [],
+        "methods": [
+          "()",
+          "makeLoan(uint256,uint256,uint256,address,address,address,address)"
+        ],
+        "linkReferences": [],
+        "errors": [
+          {
+            "kind": "constructor",
+            "contract": "ggLoanMaker",
+            "src": "contracts/togeV2/ggLoanMaker.sol:11"
+          }
+        ],
+        "layout": {
+          "storage": [
+            {
+              "label": "admin",
+              "offset": 0,
+              "slot": "0",
+              "type": "t_address",
+              "contract": "ggLoanMaker",
+              "src": "contracts/togeV2/ggLoanMaker.sol:8"
+            },
+            {
+              "label": "loans",
+              "offset": 0,
+              "slot": "1",
+              "type": "t_array(t_contract(ggLoan)876)dyn_storage",
+              "contract": "ggLoanMaker",
+              "src": "contracts/togeV2/ggLoanMaker.sol:9"
+            }
+          ],
+          "types": {
+            "t_address": {
+              "label": "address",
+              "numberOfBytes": "20"
+            },
+            "t_array(t_contract(ggLoan)876)dyn_storage": {
+              "label": "contract ggLoan[]",
+              "numberOfBytes": "32"
+            },
+            "t_contract(ggLoan)876": {
+              "label": "contract ggLoan",
+              "numberOfBytes": "20"
+            }
+          },
+          "layoutVersion": "1.1",
+          "flat": true
+        }
+      }
+    },
+    {
+      "ERC20": {
+        "src": "@openzeppelin/contracts/token/ERC20/ERC20.sol:35",
+        "version": {
+          "withMetadata": "08295699790c674c5574539ced5280dbb163cab91795b07eb9175feafd7c5c02",
+          "withoutMetadata": "7e7a4d2dea64835b308c8a359c3029d74988a4318ba8ef4240ab30513edfd448",
+          "linkedWithoutMetadata": "7e7a4d2dea64835b308c8a359c3029d74988a4318ba8ef4240ab30513edfd448"
+        },
+        "inherit": [
+          "IERC20Metadata",
+          "IERC20",
+          "Context"
+        ],
+        "libraries": [],
+        "methods": [
+          "(string,string)",
+          "name()",
+          "symbol()",
+          "decimals()",
+          "totalSupply()",
+          "balanceOf(address)",
+          "transfer(address,uint256)",
+          "allowance(address,address)",
+          "approve(address,uint256)",
+          "transferFrom(address,address,uint256)",
+          "increaseAllowance(address,uint256)",
+          "decreaseAllowance(address,uint256)"
+        ],
+        "linkReferences": [],
+        "errors": [
+          {
+            "kind": "constructor",
+            "contract": "ERC20",
+            "src": "@openzeppelin/contracts/token/ERC20/ERC20.sol:54"
+          }
+        ],
+        "layout": {
+          "storage": [
+            {
+              "label": "_balances",
+              "offset": 0,
+              "slot": "0",
+              "type": "t_mapping(t_address,t_uint256)",
+              "contract": "ERC20",
+              "src": "@openzeppelin/contracts/token/ERC20/ERC20.sol:36"
+            },
+            {
+              "label": "_allowances",
+              "offset": 0,
+              "slot": "1",
+              "type": "t_mapping(t_address,t_mapping(t_address,t_uint256))",
+              "contract": "ERC20",
+              "src": "@openzeppelin/contracts/token/ERC20/ERC20.sol:38"
+            },
+            {
+              "label": "_totalSupply",
+              "offset": 0,
+              "slot": "2",
+              "type": "t_uint256",
+              "contract": "ERC20",
+              "src": "@openzeppelin/contracts/token/ERC20/ERC20.sol:40"
+            },
+            {
+              "label": "_name",
+              "offset": 0,
+              "slot": "3",
+              "type": "t_string_storage",
+              "contract": "ERC20",
+              "src": "@openzeppelin/contracts/token/ERC20/ERC20.sol:42"
+            },
+            {
+              "label": "_symbol",
+              "offset": 0,
+              "slot": "4",
+              "type": "t_string_storage",
+              "contract": "ERC20",
+              "src": "@openzeppelin/contracts/token/ERC20/ERC20.sol:43"
+            }
+          ],
+          "types": {
+            "t_address": {
+              "label": "address",
+              "numberOfBytes": "20"
+            },
+            "t_mapping(t_address,t_mapping(t_address,t_uint256))": {
+              "label": "mapping(address => mapping(address => uint256))",
+              "numberOfBytes": "32"
+            },
+            "t_mapping(t_address,t_uint256)": {
+              "label": "mapping(address => uint256)",
+              "numberOfBytes": "32"
+            },
+            "t_string_storage": {
+              "label": "string",
+              "numberOfBytes": "32"
+            },
+            "t_uint256": {
+              "label": "uint256",
+              "numberOfBytes": "32"
+            }
+          },
+          "layoutVersion": "1.1",
+          "flat": true
+        }
+      },
+      "IERC20": {
+        "src": "@openzeppelin/contracts/token/ERC20/IERC20.sol:9",
+        "inherit": [],
+        "libraries": [],
+        "methods": [
+          "totalSupply()",
+          "balanceOf(address)",
+          "transfer(address,uint256)",
+          "allowance(address,address)",
+          "approve(address,uint256)",
+          "transferFrom(address,address,uint256)"
+        ],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.1",
+          "flat": false
+        }
+      },
+      "IERC20Metadata": {
+        "src": "@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol:13",
+        "inherit": [
+          "IERC20"
+        ],
+        "libraries": [],
+        "methods": [
+          "name()",
+          "symbol()",
+          "decimals()"
+        ],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.1",
+          "flat": false
+        }
+      },
+      "Context": {
+        "src": "@openzeppelin/contracts/utils/Context.sol:16",
+        "inherit": [],
+        "libraries": [],
+        "methods": [],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.1",
+          "flat": false
+        }
+      },
+      "depoManager": {
+        "src": "contracts/togeV2/depoManager.sol:7",
+        "version": {
           "withMetadata": "39e1f5f1ee9b098a3c344f31280a801ea4816e5f428b9f3e5b0ba54a13444c49",
           "withoutMetadata": "25f31d62e62bddf6e4abad844c45734bd9c1b10b8573adeff35cffb5eae7dbac",
           "linkedWithoutMetadata": "25f31d62e62bddf6e4abad844c45734bd9c1b10b8573adeff35cffb5eae7dbac"

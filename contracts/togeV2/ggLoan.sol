@@ -8,28 +8,15 @@ import "./depoManager.sol";
 // import "./withdrawManager.sol";
 
 
+import "./data.sol";
+
+
+//depoManager
 
 
 contract ggLoan {
 
-    uint public poolSupplyMax;
-    uint public numberBorrowerTokens;
-    uint public reserveFactorMantissa;
-
-    // time limit supply ETH to vault
-    uint public endOfRaise;
-
-    // time start supply ETH to vault
-    uint public startOfRaise;
-
-    // end time for DAO to accept loan
-    uint public endBorrowerAcceptWindow;
-
-    address public borrower;
-    address public borrowerToken;
-    address public loanAdmin;
-
-    depoManager depositManager;
+    Data dt;
 
     constructor(
         uint256 _poolSupplyMax,
@@ -37,29 +24,38 @@ contract ggLoan {
         uint256 _reserveFactorMantissa,
         address _borrower,
         address _borrowerToken,
-        address _loanAdmin,
-        address _depositManager
+        address _loanAdmin
     ) {
-        poolSupplyMax = _poolSupplyMax;
-        numberBorrowerTokens = _numberBorrowerTokens;
-        reserveFactorMantissa = _reserveFactorMantissa;
-        borrower = _borrower;
-        borrowerToken = _borrowerToken;
-        loanAdmin = _loanAdmin;
-        depositManager = depoManager(_depositManager);
+        dt.poolSupplyMax = _poolSupplyMax;
+        dt.numberBorrowerTokens = _numberBorrowerTokens;
+        dt.reserveFactorMantissa = _reserveFactorMantissa;
+        dt.borrower = _borrower;
+        dt.borrowerToken = _borrowerToken;
+        dt.loanAdmin = _loanAdmin;
     }
 
     modifier isBorrower() {
-        require(msg.sender == borrower,"TOGGE: prohibited");
+        require(msg.sender == dt.borrower,"TOGGE: prohibited");
         _;
     }
 
-    function depositTokens(uint _value) external isBorrower {
-        depositManager.depositTokens(_value, numberBorrowerTokens, borrowerToken, borrower, address(this));
-        startOfRaise = block.timestamp;
-        endOfRaise = startOfRaise + 24 seconds;
-        endBorrowerAcceptWindow = endOfRaise + 10 seconds;
-    }
+    // function depositTokens(uint _value) external isBorrower {
+    //     depositManager.depositTokens(_value, Data.numberBorrowerTokens, Data.borrowerToken, Data.borrower, address(this));
+    //     Data.startOfRaise = block.timestamp;
+    //     Data.endOfRaise = Data.startOfRaise + 24 seconds;
+    //     Data.endBorrowerAcceptWindow = Data.endOfRaise + 10 seconds;
+    // }
+
+    // //     // @LP -- supply eth to main vault
+    // // function LP_deposit() external payable {
+
+    // // }
+
+
+
+    
+
+
 
 }
 
