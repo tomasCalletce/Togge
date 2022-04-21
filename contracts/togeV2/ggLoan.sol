@@ -1,21 +1,17 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.4;
 
-
 import "./depoManager.sol";
+import "./withdrawManager.sol";
 // import "./liquidationManager.sol";
 // import "./paymentManager.sol";
 // import "./withdrawManager.sol";
 
-
 import "./data.sol";
-
 
 //depoManager
 
-
 contract ggLoan {
-
     Data dt;
 
     constructor(
@@ -35,22 +31,42 @@ contract ggLoan {
     }
 
     modifier isBorrower() {
-        require(msg.sender == dt.borrower,"TOGGE: prohibited");
+        require(msg.sender == dt.borrower, "TOGGE: prohibited");
         _;
     }
 
-    function depositTokens(uint _value) external isBorrower {
-        depoManager.depositTokens(_value,dt.numberBorrowerTokens,dt.startOfRaise,dt.endOfRaise,dt.endBorrowerAcceptWindow,dt.borrowerToken,dt.borrower);
+    function depositTokens(uint256 _value) external isBorrower {
+        depoManager.depositTokens(
+            _value,
+            dt.numberBorrowerTokens,
+            dt.startOfRaise,
+            dt.endOfRaise,
+            dt.endBorrowerAcceptWindow,
+            dt.borrowerToken,
+            dt.borrower
+        );
     }
 
-    
+    function LP_deposit() external payable {
+        depoManager.LP_deposit(dt);
+    }
 
+    function acceptLoanWithdrawLoan(string memory _name, string memory _symbol)
+        external
+    {
+        withdrawManager.acceptLoanWithdrawLoan(_name, _symbol, dt);
+    }
 
+    function withdrawFailedDeposits() external {
+        withdrawManager.withdrawFailedDeposits(dt);
+    }
 
-    
+    function withdrawLPtoken() external {
+        withdrawManager.withdrawLPtoken(dt);
+    }
 
-
-
+    // @LP - withdraw deposit + interest
+    function withdraw() external {
+        withdrawManager.withdraw(dt);
+    }
 }
-
-
