@@ -5,10 +5,7 @@ import "./ggeth.sol";
 import "./InterestRateModel.sol";
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 
-
-
 contract togLoanStorage {
-
     // open vault to investors
     event borrowerTokenDeposited(uint256 _amount, address borrower);
 
@@ -31,7 +28,7 @@ contract togLoanStorage {
     bool public loanAccepted;
 
     // Loan Maker admin
-    address public  admin;
+    address public admin;
 
     // borrower governance token
     address public borrowerToken;
@@ -40,75 +37,67 @@ contract togLoanStorage {
     address public borrower;
 
     // promised number of borrower tokens
-    uint public numberBorrowerTokens;
+    uint256 public numberBorrowerTokens;
 
     // max supply eth
-    uint public poolSupplyMax;
+    uint256 public poolSupplyMax;
 
     // time limit supply ETH to vault
-    uint public endOfRaise;
+    uint256 public endOfRaise;
 
     // time start supply ETH to vault
-    uint public startOfRaise;
+    uint256 public startOfRaise;
 
     // end time for DAO to accept loan
-    uint public endBorrowerAcceptWindow;
+    uint256 public endBorrowerAcceptWindow;
 
     // eth supplied
-    uint public ethSupplied;
-
+    uint256 public ethSupplied;
 
     // $$$$ MUST CHANGE NAMES $$$$
 
     // amount paid
-    uint public valorDAORecibido = 0;
+    uint256 public valorDAORecibido = 0;
 
     // amount withdrawn
-    uint public valorRetiroLPs = 0;
+    uint256 public valorRetiroLPs = 0;
 
     // current lp index
-    uint public currentIndex = 0;
+    uint256 public currentIndex = 0;
 
     //reserveFactorMantissa
-    uint public reserveFactorMantissa;
+    uint256 public reserveFactorMantissa;
 
-    //lp nft counter 
-    uint public nftCounter;
+    //lp nft counter
+    uint256 public nftCounter;
 
     //index order of each LP
-    mapping(address => uint) public  indexing;
+    mapping(address => uint256) public indexing;
 
     // deposit balance by LP
-    mapping(address => uint) public  deposits;
+    mapping(address => uint256) public deposits;
 
     //lp nft claimed
     mapping(address => bool) public nftClaimed;
 
     // lp seniority manager
-    uint[] accum;
+    uint256[] accum;
 
     // $$$$ MUST CHANGE NAMES $$$$
 
     ggETH public LPnfts;
-
 }
 
-
-
-
-
-
-contract togLoan is togLoanStorage{
-    
+contract togLoan is togLoanStorage {
     // caller is dao
     modifier isBorrower() {
-        require(msg.sender == borrower,"TOGGE: prohibited");
+        require(msg.sender == borrower, "TOGGE: prohibited");
         _;
     }
 
     // caller is admin
     modifier isadmin() {
-        require(msg.sender == admin,"TOGGE: prohibited");
+        require(msg.sender == admin, "TOGGE: prohibited");
         _;
     }
 
@@ -151,7 +140,7 @@ contract togLoan is togLoanStorage{
     function LP_deposit() external payable {
         require(msg.sender != borrower, "TOGGE: BORROWER_FORBIDDEN");
 
-        uint _currentTime = block.timestamp;
+        uint256 _currentTime = block.timestamp;
         require(
             _currentTime > startOfRaise && _currentTime < endOfRaise,
             "TOGGE: OUT_OF_TIME_WINDOW"
@@ -178,7 +167,7 @@ contract togLoan is togLoanStorage{
         external
         isBorrower
     {
-        uint _currentTime = block.timestamp;
+        uint256 _currentTime = block.timestamp;
         require(
             _currentTime > endOfRaise && _currentTime < endBorrowerAcceptWindow,
             "TOGGE: OUT_OF_TIME_WINDOW"
@@ -195,9 +184,10 @@ contract togLoan is togLoanStorage{
     }
 
     //@System -- create LP token
-    function createLPtoken(string memory _name, string memory _symbol) internal {
+    function createLPtoken(string memory _name, string memory _symbol)
+        internal
+    {
         LPnfts = new ggETH(_name, _symbol);
-        
     }
 
     //@LP -- withdarw deposit if failed loan
@@ -211,12 +201,11 @@ contract togLoan is togLoanStorage{
         require(sent, "TOGGE: FAILED_SEND");
     }
 
-  
     // LP -- mint lp token
     function withdrawLPtoken() external {
         require(loanAccepted, "TOGGE: LOAN_NOT_ACCEPTED");
         require(deposits[msg.sender] != 0, "TOGGE: NO_VALUE");
-        require(!nftClaimed[msg.sender],"TOGGE: ClAIMED");
+        require(!nftClaimed[msg.sender], "TOGGE: ClAIMED");
 
         uint256 _currentTime = block.timestamp;
         require(
@@ -225,7 +214,7 @@ contract togLoan is togLoanStorage{
         );
 
         nftClaimed[msg.sender] = true;
-        LPnfts.mint(msg.sender,nftCounter,deposits[msg.sender]);
+        LPnfts.mint(msg.sender, nftCounter, deposits[msg.sender]);
         nftCounter++;
     }
 
