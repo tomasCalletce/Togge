@@ -1,9 +1,10 @@
+
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.4;
 
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 
-contract DepositManager {
+contract depoManager {
 
     //@Borrower -- deposit governance token
     function depositTokens(uint _value,uint _numberBorrowerTokens,address _borrowerToken,address _borrower,address _lender) external {

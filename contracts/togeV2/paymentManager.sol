@@ -10,10 +10,7 @@ contract paymentManager {
         ggLoan = msg.sender;
     }
 
-    modifier isggLoan(){
-        require(msg.sender == ggLoan,"paymentManager: NOT_GGLOAN");
-        _;
-    }
+   
 }
 
 

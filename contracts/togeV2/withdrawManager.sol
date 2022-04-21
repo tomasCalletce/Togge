@@ -10,9 +10,6 @@ contract withdrawManager {
         ggLoan = msg.sender;
     }
 
-    modifier isggLoan(){
-        require(msg.sender == ggLoan,"withdrawManager: NOT_GGLOAN");
-        _;
-    }
+  
     
 }

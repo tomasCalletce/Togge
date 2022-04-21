@@ -792,8 +792,8 @@
       ]
     },
     "/Users/tomascalle/Documents/GitHub/Togge/contracts/togeV2/paymentManager.sol": {
-      "lastModificationDate": 1650547662838,
-      "contentHash": "6d644577d479421e43b3540a6808028a",
+      "lastModificationDate": 1650549474917,
+      "contentHash": "1a6cbbdbf266b3d927293704011e76f4",
       "sourceName": "contracts/togeV2/paymentManager.sol",
       "solcConfig": {
         "version": "0.8.4",
@@ -828,8 +828,8 @@
       ]
     },
     "/Users/tomascalle/Documents/GitHub/Togge/contracts/togeV2/ggLoan.sol": {
-      "lastModificationDate": 1650548913753,
-      "contentHash": "4ba3b59fad86198b6175e90081600e98",
+      "lastModificationDate": 1650549895777,
+      "contentHash": "210313fb1e3664aea450656248f06f08",
       "sourceName": "contracts/togeV2/ggLoan.sol",
       "solcConfig": {
         "version": "0.8.4",
@@ -856,10 +856,7 @@
         }
       },
       "imports": [
-        "./DepositManager.sol",
-        "./liquidationManager.sol",
-        "./paymentManager.sol",
-        "./withdrawManager.sol"
+        "./depoManager.sol"
       ],
       "versionPragmas": [
         "^0.8.4"
@@ -907,8 +904,8 @@
       ]
     },
     "/Users/tomascalle/Documents/GitHub/Togge/contracts/togeV2/withdrawManager.sol": {
-      "lastModificationDate": 1650547648874,
-      "contentHash": "9753c4b41fc771deb1984dbc59999979",
+      "lastModificationDate": 1650549471536,
+      "contentHash": "1d84d43d6cd72746467679305b68b7fe",
       "sourceName": "contracts/togeV2/withdrawManager.sol",
       "solcConfig": {
         "version": "0.8.4",
@@ -943,8 +940,8 @@
       ]
     },
     "/Users/tomascalle/Documents/GitHub/Togge/contracts/togeV2/liquidationManager.sol": {
-      "lastModificationDate": 1650547677518,
-      "contentHash": "81a73d9ea1534fcf368e504b20b6e57f",
+      "lastModificationDate": 1650549477354,
+      "contentHash": "be4c115bfb49346c72353b68922fb0cf",
       "sourceName": "contracts/togeV2/liquidationManager.sol",
       "solcConfig": {
         "version": "0.8.4",
@@ -979,8 +976,8 @@
       ]
     },
     "/Users/tomascalle/Documents/GitHub/Togge/contracts/togeV2/ggLoanMaker.sol": {
-      "lastModificationDate": 1650548850188,
-      "contentHash": "41f6e571d4f5cb1fc28ed86829c75878",
+      "lastModificationDate": 1650549819455,
+      "contentHash": "8ee4e6040b74b7988e7fc485b5b1365c",
       "sourceName": "contracts/togeV2/ggLoanMaker.sol",
       "solcConfig": {
         "version": "0.8.4",
@@ -1016,10 +1013,10 @@
         "ggLoanMaker"
       ]
     },
-    "/Users/tomascalle/Documents/GitHub/Togge/contracts/togeV2/depositManager.sol": {
-      "lastModificationDate": 1650548582725,
-      "contentHash": "e5645a10797edd0aa76ebecfe5452814",
-      "sourceName": "contracts/togeV2/depositManager.sol",
+    "/Users/tomascalle/Documents/GitHub/Togge/contracts/togeV2/depoManager.sol": {
+      "lastModificationDate": 1650549845338,
+      "contentHash": "926273a9d38d343d936f0f75e4c279fb",
+      "sourceName": "contracts/togeV2/depoManager.sol",
       "solcConfig": {
         "version": "0.8.4",
         "settings": {
@@ -1051,45 +1048,7 @@
         "^0.8.4"
       ],
       "artifacts": [
-        "DepositManager"
-      ]
-    },
-    "/Users/tomascalle/Documents/GitHub/Togge/contracts/togeV2/DepositManager.sol": {
-      "lastModificationDate": 1650549001347,
-      "contentHash": "e5645a10797edd0aa76ebecfe5452814",
-      "sourceName": "contracts/togeV2/DepositManager.sol",
-      "solcConfig": {
-        "version": "0.8.4",
-        "settings": {
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata",
-                "storageLayout"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "@openzeppelin/contracts/token/ERC20/ERC20.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.4"
-      ],
-      "artifacts": [
-        "DepositManager"
+        "depoManager"
       ]
     }
   }

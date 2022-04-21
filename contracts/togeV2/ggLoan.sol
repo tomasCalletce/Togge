@@ -2,10 +2,10 @@
 pragma solidity ^0.8.4;
 
 
-import "./DepositManager.sol";
-import "./liquidationManager.sol";
-import "./paymentManager.sol";
-import "./withdrawManager.sol";
+import "./depoManager.sol";
+// import "./liquidationManager.sol";
+// import "./paymentManager.sol";
+// import "./withdrawManager.sol";
 
 
 
@@ -29,7 +29,7 @@ contract ggLoan {
     address public borrowerToken;
     address public loanAdmin;
 
-    DepositManager depositManager;
+    depoManager depositManager;
 
     constructor(
         uint256 _poolSupplyMax,
@@ -46,7 +46,7 @@ contract ggLoan {
         borrower = _borrower;
         borrowerToken = _borrowerToken;
         loanAdmin = _loanAdmin;
-        depositManager = DepositManager(_depositManager);
+        depositManager = depoManager(_depositManager);
     }
 
     modifier isBorrower() {

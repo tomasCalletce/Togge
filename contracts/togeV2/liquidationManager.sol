@@ -10,10 +10,6 @@ contract liquidationManager {
         ggLoan = msg.sender;
     }
 
-    modifier isggLoan(){
-        require(msg.sender == ggLoan,"liquidationManager: NOT_GGLOAN");
-        _;
-    }
-    
+ 
     
 }
