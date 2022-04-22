@@ -10,9 +10,20 @@ struct Data {
     uint256 currentIndex;
     uint256 endBorrowerAcceptWindow;
     uint256 nftCounter;
-    uint256 ethSupplied;
     uint256 valorDAORecibido;
     uint256 valorRetiroLPs;
+    uint256 interesTotal;
+    uint256 ethSupplied;
+    //interest rate
+    uint256 goalAmount;
+    uint256 multiplier;
+    //variables payment
+    uint256 ultimoPago;
+    uint256 deudaActual;
+    uint256 duracionCiclo;
+    uint256 numCiclos;
+    uint256 deudaTotal;
+    //<----------------------->
     address borrower;
     address borrowerToken;
     address loanAdmin;

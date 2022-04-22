@@ -2,7 +2,7 @@
 pragma solidity ^0.8.4;
 
 contract DutchAuction {
-    uint256 private constant DURATION = 1 days;
+    uint256 constant DURATION = 1 days;
     uint256 startingPrice;
     address public admin;
     uint256 public immutable startAt;
@@ -31,8 +31,8 @@ contract DutchAuction {
         return startingPrice - discount;
     }
 
-    function _grantPower(address Loan) internal pure {
-        abi.encodeWithSignature("delegate(address)", Loan);
+    function _grantPower(address _delegatee) internal pure {
+        // abi.encodeWithSignature("delegate(address)", _delegatee);
     }
 
     function buy() external payable {

@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.4;
 import "./data.sol";
+import "./InterestRateModel.sol";
 
 library withdrawManager {
     //@Borrower -- withdraw loan and create lp token
@@ -22,6 +23,20 @@ library withdrawManager {
         (bool sent, ) = payable(msg.sender).call{value: dt.ethSupplied}("");
         require(sent, "TOGGE: FAILED_SEND");
         dt.LPnfts = new ggETHV2(_name, _symbol);
+        dt.ultimoPago = block.timestamp;
+        //interes de riesgo + togge cut
+        dt.interesTotal =
+            InterestRateModel.getBorrowRate(
+                dt.goalAmount,
+                dt.ethSupplied,
+                dt.multiplier
+            ) +
+            dt.reserveFactorMantissa;
+
+        dt.deudaTotal = dt.ethSupplied * (1e18 + dt.interesTotal);
+
+        //se calcula el total a pagar de el DAO
+        dt.deudaActual = dt.deudaTotal;
     }
 
     //@LP -- withdarw deposit if failed loan

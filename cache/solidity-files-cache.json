@@ -268,8 +268,8 @@
       ]
     },
     "/Users/juancamilosalazar/Desktop/Togge/contracts/togeV2/ggLoan.sol": {
-      "lastModificationDate": 1650575588139,
-      "contentHash": "3ae555f24020cb77119ee6b971a4093d",
+      "lastModificationDate": 1650590232151,
+      "contentHash": "18c988883205e471c2fa8d738cfa3351",
       "sourceName": "contracts/togeV2/ggLoan.sol",
       "solcConfig": {
         "version": "0.8.4",
@@ -298,6 +298,7 @@
       "imports": [
         "./depoManager.sol",
         "./withdrawManager.sol",
+        "./paymentManager.sol",
         "./data.sol"
       ],
       "versionPragmas": [
@@ -308,8 +309,8 @@
       ]
     },
     "/Users/juancamilosalazar/Desktop/Togge/contracts/togeV2/data.sol": {
-      "lastModificationDate": 1650575613457,
-      "contentHash": "d58d6916187604419ea269eda71611f9",
+      "lastModificationDate": 1650586437314,
+      "contentHash": "bd4e3119a4a98713f82824ca9a66ab8b",
       "sourceName": "contracts/togeV2/data.sol",
       "solcConfig": {
         "version": "0.8.4",
@@ -344,8 +345,8 @@
       "artifacts": []
     },
     "/Users/juancamilosalazar/Desktop/Togge/contracts/togeV2/ggLoanMaker.sol": {
-      "lastModificationDate": 1650569122857,
-      "contentHash": "47c885ebcd89af1cfdf5d39ea2bbe702",
+      "lastModificationDate": 1650582557660,
+      "contentHash": "b82a26e879d7e65c3aeaaacc25c57908",
       "sourceName": "contracts/togeV2/ggLoanMaker.sol",
       "solcConfig": {
         "version": "0.8.4",
@@ -382,7 +383,7 @@
       ]
     },
     "/Users/juancamilosalazar/Desktop/Togge/contracts/togLoan.sol": {
-      "lastModificationDate": 1650569671881,
+      "lastModificationDate": 1650579694572,
       "contentHash": "a68a8f00e816563ed74334ae9c6dc3a0",
       "sourceName": "contracts/togLoan.sol",
       "solcConfig": {
@@ -461,8 +462,8 @@
       ]
     },
     "/Users/juancamilosalazar/Desktop/Togge/contracts/InterestRateModel.sol": {
-      "lastModificationDate": 1650332773835,
-      "contentHash": "2a09d2a32579dc1eabc492b46f51290c",
+      "lastModificationDate": 1650581688078,
+      "contentHash": "9a0122fbc1d4b7f7611980a66578eb6e",
       "sourceName": "contracts/InterestRateModel.sol",
       "solcConfig": {
         "version": "0.8.4",
@@ -876,8 +877,8 @@
       ]
     },
     "/Users/juancamilosalazar/Desktop/Togge/contracts/DutchAuction.sol": {
-      "lastModificationDate": 1650332773835,
-      "contentHash": "35f1de7b10afb8cc6f73cf89ad789027",
+      "lastModificationDate": 1650590258045,
+      "contentHash": "0f77a933b87ee6da54b3bf4bdbea7463",
       "sourceName": "contracts/DutchAuction.sol",
       "solcConfig": {
         "version": "0.8.4",
@@ -912,81 +913,9 @@
       ]
     },
     "/Users/juancamilosalazar/Desktop/Togge/contracts/togeV2/liquidationManager.sol": {
-      "lastModificationDate": 1650569122857,
-      "contentHash": "be4c115bfb49346c72353b68922fb0cf",
+      "lastModificationDate": 1650587345177,
+      "contentHash": "a71b0e12f19b459417696b20d7042ab8",
       "sourceName": "contracts/togeV2/liquidationManager.sol",
-      "solcConfig": {
-        "version": "0.8.4",
-        "settings": {
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata",
-                "storageLayout"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [],
-      "versionPragmas": [
-        "^0.8.4"
-      ],
-      "artifacts": [
-        "liquidationManager"
-      ]
-    },
-    "/Users/juancamilosalazar/Desktop/Togge/contracts/togeV2/paymentManager.sol": {
-      "lastModificationDate": 1650569122857,
-      "contentHash": "1a6cbbdbf266b3d927293704011e76f4",
-      "sourceName": "contracts/togeV2/paymentManager.sol",
-      "solcConfig": {
-        "version": "0.8.4",
-        "settings": {
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata",
-                "storageLayout"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [],
-      "versionPragmas": [
-        "^0.8.4"
-      ],
-      "artifacts": [
-        "paymentManager"
-      ]
-    },
-    "/Users/juancamilosalazar/Desktop/Togge/contracts/togeV2/withdrawManager.sol": {
-      "lastModificationDate": 1650575539059,
-      "contentHash": "6f501f49778f47f5da8c8087dee10786",
-      "sourceName": "contracts/togeV2/withdrawManager.sol",
       "solcConfig": {
         "version": "0.8.4",
         "settings": {
@@ -1018,7 +947,120 @@
         "^0.8.4"
       ],
       "artifacts": [
+        "liquidationManager"
+      ]
+    },
+    "/Users/juancamilosalazar/Desktop/Togge/contracts/togeV2/paymentManager.sol": {
+      "lastModificationDate": 1650586956971,
+      "contentHash": "679b348a8708d4e3a7821e003f38b334",
+      "sourceName": "contracts/togeV2/paymentManager.sol",
+      "solcConfig": {
+        "version": "0.8.4",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./data.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.4"
+      ],
+      "artifacts": [
+        "paymentManager"
+      ]
+    },
+    "/Users/juancamilosalazar/Desktop/Togge/contracts/togeV2/withdrawManager.sol": {
+      "lastModificationDate": 1650586935929,
+      "contentHash": "8ec6efcefe1c474453ac4e16e9cf2341",
+      "sourceName": "contracts/togeV2/withdrawManager.sol",
+      "solcConfig": {
+        "version": "0.8.4",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./data.sol",
+        "./InterestRateModel.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.4"
+      ],
+      "artifacts": [
         "withdrawManager"
+      ]
+    },
+    "/Users/juancamilosalazar/Desktop/Togge/contracts/togeV2/InterestRateModel.sol": {
+      "lastModificationDate": 1650579933044,
+      "contentHash": "721ebf3cd826f019a1c0ad4df178efa1",
+      "sourceName": "contracts/togeV2/InterestRateModel.sol",
+      "solcConfig": {
+        "version": "0.8.4",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.4"
+      ],
+      "artifacts": [
+        "InterestRateModel"
       ]
     }
   }

@@ -3,6 +3,7 @@ pragma solidity ^0.8.4;
 
 import "./depoManager.sol";
 import "./withdrawManager.sol";
+import "./paymentManager.sol";
 // import "./liquidationManager.sol";
 // import "./paymentManager.sol";
 // import "./withdrawManager.sol";
@@ -18,6 +19,10 @@ contract ggLoan {
         uint256 _poolSupplyMax,
         uint256 _numberBorrowerTokens,
         uint256 _reserveFactorMantissa,
+        uint256 _duracionCiclo,
+        uint256 _numCiclos,
+        uint256 _goalAmount,
+        uint256 _multiplier,
         address _borrower,
         address _borrowerToken,
         address _loanAdmin
@@ -28,6 +33,10 @@ contract ggLoan {
         dt.borrower = _borrower;
         dt.borrowerToken = _borrowerToken;
         dt.loanAdmin = _loanAdmin;
+        dt.duracionCiclo = _duracionCiclo;
+        dt.numCiclos = _numCiclos;
+        dt.goalAmount = _goalAmount;
+        dt.multiplier = _multiplier;
     }
 
     modifier isBorrower() {
@@ -69,4 +78,12 @@ contract ggLoan {
     function withdraw() external {
         withdrawManager.withdraw(dt);
     }
+
+    function makePayment() external {
+        paymentManager.makePayment(dt);
+    }
+
+    // function liquidate() external{
+    //     payment
+    // }
 }
