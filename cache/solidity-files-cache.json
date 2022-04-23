@@ -1062,6 +1062,44 @@
       "artifacts": [
         "InterestRateModel"
       ]
+    },
+    "/Users/juancamilosalazar/Desktop/Togge/contracts/togeV2/DutchAuction.sol": {
+      "lastModificationDate": 1650591525201,
+      "contentHash": "b9223dc427f698f0f43202229d0dd7bc",
+      "sourceName": "contracts/togeV2/DutchAuction.sol",
+      "solcConfig": {
+        "version": "0.8.4",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./data.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.4"
+      ],
+      "artifacts": [
+        "DutchAuction"
+      ]
     }
   }
 }
