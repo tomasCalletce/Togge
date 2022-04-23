@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.4;
-import "./data.sol";
-import "./InterestRateModel.sol";
+import "../data.sol";
+import "../InterestRateModel.sol";
 
 library withdrawManager {
     //@Borrower -- withdraw loan and create lp token

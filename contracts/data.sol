@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.4;
-import "./ggETH.sol";
+import "./tokens/ggETH.sol";
 struct Data {
     uint256 poolSupplyMax;
     uint256 numberBorrowerTokens;

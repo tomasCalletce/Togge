@@ -1,9 +1,9 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.4;
 
-import "./depoManager.sol";
-import "./withdrawManager.sol";
-import "./paymentManager.sol";
+import "./libraries/depoManager.sol";
+import "./libraries/withdrawManager.sol";
+import "./libraries/paymentManager.sol";
 // import "./liquidationManager.sol";
 // import "./paymentManager.sol";
 // import "./withdrawManager.sol";
