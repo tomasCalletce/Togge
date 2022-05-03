@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.4;
 import "./tokens/ggETH.sol";
+
 struct Data {
-    uint256 poolSupplyMax;
     uint256 numberBorrowerTokens;
     uint256 reserveFactorMantissa;
     uint256 endOfRaise;
@@ -23,7 +23,10 @@ struct Data {
     uint256 duracionCiclo;
     uint256 numCiclos;
     uint256 deudaTotal;
-    //<----------------------->
+    // dutch dutch auction
+    uint256 discountRate;
+    uint256 auctionStart;
+    uint256 auctionDuration;
     address borrower;
     address borrowerToken;
     address loanAdmin;
