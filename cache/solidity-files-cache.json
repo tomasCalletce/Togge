@@ -1,79 +1,7 @@
 {
   "_format": "hh-sol-cache-2",
   "files": {
-    "/Users/tomascalle/Desktop/tetet/contracts/Greeter.sol": {
-      "lastModificationDate": 1651606832843,
-      "contentHash": "54c28c84e5277b35b8c8329ce9755dae",
-      "sourceName": "contracts/Greeter.sol",
-      "solcConfig": {
-        "version": "0.8.4",
-        "settings": {
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "hardhat/console.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.0"
-      ],
-      "artifacts": [
-        "Greeter"
-      ]
-    },
-    "/Users/tomascalle/Desktop/tetet/node_modules/hardhat/console.sol": {
-      "lastModificationDate": 1651606773777,
-      "contentHash": "cc4777addd464ea56fa35b1c45df0591",
-      "sourceName": "hardhat/console.sol",
-      "solcConfig": {
-        "version": "0.8.4",
-        "settings": {
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [],
-      "versionPragmas": [
-        ">=0.4.22 <0.9.0"
-      ],
-      "artifacts": [
-        "console"
-      ]
-    },
-    "/Users/tomascalle/Desktop/tetet/contracts/Data.sol": {
+    "/Users/tomascalle/Documents/GitHub/Togge/contracts/Data.sol": {
       "lastModificationDate": 1651607774882,
       "contentHash": "24d279e8b408d98fe9c55982a1be4f0f",
       "sourceName": "contracts/Data.sol",
@@ -108,7 +36,7 @@
       ],
       "artifacts": []
     },
-    "/Users/tomascalle/Desktop/tetet/contracts/tokens/GGETH.sol": {
+    "/Users/tomascalle/Documents/GitHub/Togge/contracts/tokens/GGETH.sol": {
       "lastModificationDate": 1651607700619,
       "contentHash": "b4f9bede941d24023bb3a203dbbe97a2",
       "sourceName": "contracts/tokens/GGETH.sol",
@@ -145,7 +73,7 @@
         "GGETH"
       ]
     },
-    "/Users/tomascalle/Desktop/tetet/node_modules/@openzeppelin/contracts/token/ERC721/ERC721.sol": {
+    "/Users/tomascalle/Documents/GitHub/Togge/node_modules/@openzeppelin/contracts/token/ERC721/ERC721.sol": {
       "lastModificationDate": 1651607511825,
       "contentHash": "21b9f3bdb3e60f56ea81361c37420136",
       "sourceName": "@openzeppelin/contracts/token/ERC721/ERC721.sol",
@@ -188,7 +116,7 @@
         "ERC721"
       ]
     },
-    "/Users/tomascalle/Desktop/tetet/node_modules/@openzeppelin/contracts/token/ERC721/IERC721.sol": {
+    "/Users/tomascalle/Documents/GitHub/Togge/node_modules/@openzeppelin/contracts/token/ERC721/IERC721.sol": {
       "lastModificationDate": 1651607511836,
       "contentHash": "cd8e72e5859bddd5fd26b2fb5c51c846",
       "sourceName": "@openzeppelin/contracts/token/ERC721/IERC721.sol",
@@ -225,7 +153,7 @@
         "IERC721"
       ]
     },
-    "/Users/tomascalle/Desktop/tetet/node_modules/@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol": {
+    "/Users/tomascalle/Documents/GitHub/Togge/node_modules/@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol": {
       "lastModificationDate": 1651607511836,
       "contentHash": "c22d4395e33763de693fd440c6fd10e1",
       "sourceName": "@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol",
@@ -260,7 +188,7 @@
         "IERC721Receiver"
       ]
     },
-    "/Users/tomascalle/Desktop/tetet/node_modules/@openzeppelin/contracts/token/ERC721/extensions/IERC721Metadata.sol": {
+    "/Users/tomascalle/Documents/GitHub/Togge/node_modules/@openzeppelin/contracts/token/ERC721/extensions/IERC721Metadata.sol": {
       "lastModificationDate": 1651607511836,
       "contentHash": "efbc0d15b80a74e34dbe8da0f3e879bb",
       "sourceName": "@openzeppelin/contracts/token/ERC721/extensions/IERC721Metadata.sol",
@@ -297,7 +225,7 @@
         "IERC721Metadata"
       ]
     },
-    "/Users/tomascalle/Desktop/tetet/node_modules/@openzeppelin/contracts/utils/Address.sol": {
+    "/Users/tomascalle/Documents/GitHub/Togge/node_modules/@openzeppelin/contracts/utils/Address.sol": {
       "lastModificationDate": 1651607511772,
       "contentHash": "ad714a6368ee7d43cded6bbe8af0b155",
       "sourceName": "@openzeppelin/contracts/utils/Address.sol",
@@ -332,7 +260,7 @@
         "Address"
       ]
     },
-    "/Users/tomascalle/Desktop/tetet/node_modules/@openzeppelin/contracts/utils/Context.sol": {
+    "/Users/tomascalle/Documents/GitHub/Togge/node_modules/@openzeppelin/contracts/utils/Context.sol": {
       "lastModificationDate": 1651607511775,
       "contentHash": "5f2c5c4b6af2dd4551027144797bc8be",
       "sourceName": "@openzeppelin/contracts/utils/Context.sol",
@@ -367,7 +295,7 @@
         "Context"
       ]
     },
-    "/Users/tomascalle/Desktop/tetet/node_modules/@openzeppelin/contracts/utils/Strings.sol": {
+    "/Users/tomascalle/Documents/GitHub/Togge/node_modules/@openzeppelin/contracts/utils/Strings.sol": {
       "lastModificationDate": 1651607511841,
       "contentHash": "9c54c6c065d9e590fdcdd72c451425b9",
       "sourceName": "@openzeppelin/contracts/utils/Strings.sol",
@@ -402,7 +330,7 @@
         "Strings"
       ]
     },
-    "/Users/tomascalle/Desktop/tetet/node_modules/@openzeppelin/contracts/utils/introspection/ERC165.sol": {
+    "/Users/tomascalle/Documents/GitHub/Togge/node_modules/@openzeppelin/contracts/utils/introspection/ERC165.sol": {
       "lastModificationDate": 1651607511821,
       "contentHash": "0e7db055ce108f9da7bb6686a00287c0",
       "sourceName": "@openzeppelin/contracts/utils/introspection/ERC165.sol",
@@ -439,7 +367,7 @@
         "ERC165"
       ]
     },
-    "/Users/tomascalle/Desktop/tetet/node_modules/@openzeppelin/contracts/utils/introspection/IERC165.sol": {
+    "/Users/tomascalle/Documents/GitHub/Togge/node_modules/@openzeppelin/contracts/utils/introspection/IERC165.sol": {
       "lastModificationDate": 1651607511833,
       "contentHash": "03e6768535ac4da0e9756f1d8a4a018a",
       "sourceName": "@openzeppelin/contracts/utils/introspection/IERC165.sol",
@@ -474,7 +402,7 @@
         "IERC165"
       ]
     },
-    "/Users/tomascalle/Desktop/tetet/contracts/libraries/LiquidationManager.sol": {
+    "/Users/tomascalle/Documents/GitHub/Togge/contracts/libraries/LiquidationManager.sol": {
       "lastModificationDate": 1651607734951,
       "contentHash": "3254c6f9e45b7edd16745384e90aa6e7",
       "sourceName": "contracts/libraries/LiquidationManager.sol",
@@ -511,7 +439,7 @@
         "LiquidationManager"
       ]
     },
-    "/Users/tomascalle/Desktop/tetet/contracts/libraries/PaymentManager.sol": {
+    "/Users/tomascalle/Documents/GitHub/Togge/contracts/libraries/PaymentManager.sol": {
       "lastModificationDate": 1651607738046,
       "contentHash": "3fd37dc277b71e64cb0d4092f0dac913",
       "sourceName": "contracts/libraries/PaymentManager.sol",
@@ -548,7 +476,7 @@
         "PaymentManager"
       ]
     },
-    "/Users/tomascalle/Desktop/tetet/contracts/GGLoan.sol": {
+    "/Users/tomascalle/Documents/GitHub/Togge/contracts/GGLoan.sol": {
       "lastModificationDate": 1651611069279,
       "contentHash": "53a213ce6268c6595d1bec171771789a",
       "sourceName": "contracts/GGLoan.sol",
@@ -588,7 +516,7 @@
         "GGLoan"
       ]
     },
-    "/Users/tomascalle/Desktop/tetet/contracts/libraries/DepoManager.sol": {
+    "/Users/tomascalle/Documents/GitHub/Togge/contracts/libraries/DepoManager.sol": {
       "lastModificationDate": 1651607709307,
       "contentHash": "ed9de48217a04513bba5259dfc1231c5",
       "sourceName": "contracts/libraries/DepoManager.sol",
@@ -627,7 +555,7 @@
         "DepoManager"
       ]
     },
-    "/Users/tomascalle/Desktop/tetet/contracts/libraries/WithdrawManager.sol": {
+    "/Users/tomascalle/Documents/GitHub/Togge/contracts/libraries/WithdrawManager.sol": {
       "lastModificationDate": 1651607801117,
       "contentHash": "459d51890233e80af202ea0fb159885c",
       "sourceName": "contracts/libraries/WithdrawManager.sol",
@@ -665,40 +593,7 @@
         "WithdrawManager"
       ]
     },
-    "/Users/tomascalle/Desktop/tetet/contracts/StartData.sol": {
-      "lastModificationDate": 1651609416254,
-      "contentHash": "eac1a1b512ad02b3cea5fda10af9c964",
-      "sourceName": "contracts/StartData.sol",
-      "solcConfig": {
-        "version": "0.8.4",
-        "settings": {
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [],
-      "versionPragmas": [
-        "^0.8.4"
-      ],
-      "artifacts": []
-    },
-    "/Users/tomascalle/Desktop/tetet/node_modules/@openzeppelin/contracts/token/ERC20/ERC20.sol": {
+    "/Users/tomascalle/Documents/GitHub/Togge/node_modules/@openzeppelin/contracts/token/ERC20/ERC20.sol": {
       "lastModificationDate": 1651607511822,
       "contentHash": "a9d2146925da52142435d3bb8df53c3c",
       "sourceName": "@openzeppelin/contracts/token/ERC20/ERC20.sol",
@@ -737,7 +632,7 @@
         "ERC20"
       ]
     },
-    "/Users/tomascalle/Desktop/tetet/node_modules/@openzeppelin/contracts/token/ERC20/IERC20.sol": {
+    "/Users/tomascalle/Documents/GitHub/Togge/node_modules/@openzeppelin/contracts/token/ERC20/IERC20.sol": {
       "lastModificationDate": 1651607511834,
       "contentHash": "ad7c2d0af148c8f9f097d65deeb4da6b",
       "sourceName": "@openzeppelin/contracts/token/ERC20/IERC20.sol",
@@ -772,7 +667,7 @@
         "IERC20"
       ]
     },
-    "/Users/tomascalle/Desktop/tetet/node_modules/@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol": {
+    "/Users/tomascalle/Documents/GitHub/Togge/node_modules/@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol": {
       "lastModificationDate": 1651607511834,
       "contentHash": "909ab67fc5c25033fe6cd364f8c056f9",
       "sourceName": "@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol",
@@ -809,7 +704,7 @@
         "IERC20Metadata"
       ]
     },
-    "/Users/tomascalle/Desktop/tetet/contracts/InterestRateModel.sol": {
+    "/Users/tomascalle/Documents/GitHub/Togge/contracts/InterestRateModel.sol": {
       "lastModificationDate": 1651607434792,
       "contentHash": "721ebf3cd826f019a1c0ad4df178efa1",
       "sourceName": "contracts/InterestRateModel.sol",
@@ -844,8 +739,8 @@
         "InterestRateModel"
       ]
     },
-    "/Users/tomascalle/Desktop/tetet/contracts/GGLoanMaker.sol": {
-      "lastModificationDate": 1651611099617,
+    "/Users/tomascalle/Documents/GitHub/Togge/contracts/GGLoanMaker.sol": {
+      "lastModificationDate": 1651620372409,
       "contentHash": "95754fc484c1ee67054184484b612563",
       "sourceName": "contracts/GGLoanMaker.sol",
       "solcConfig": {
@@ -881,7 +776,7 @@
         "GGLoanMaker"
       ]
     },
-    "/Users/tomascalle/Desktop/tetet/contracts/tokens/DaoToken.sol": {
+    "/Users/tomascalle/Documents/GitHub/Togge/contracts/tokens/DaoToken.sol": {
       "lastModificationDate": 1651608926258,
       "contentHash": "749cc44d25c68e04e38137d5f9d64132",
       "sourceName": "contracts/tokens/DaoToken.sol",
@@ -918,7 +813,7 @@
         "DaoToken"
       ]
     },
-    "/Users/tomascalle/Desktop/tetet/contracts/DutchAuction.sol": {
+    "/Users/tomascalle/Documents/GitHub/Togge/contracts/DutchAuction.sol": {
       "lastModificationDate": 1651607613815,
       "contentHash": "13bacb14c31ef1e95e13129b6dd19dcd",
       "sourceName": "contracts/DutchAuction.sol",
@@ -955,7 +850,112 @@
         "DutchAuction"
       ]
     },
-    "/Users/tomascalle/Desktop/tetet/contracts/Test.sol": {
+    "/Users/tomascalle/Documents/GitHub/Togge/contracts/Greeter.sol": {
+      "lastModificationDate": 1651606832843,
+      "contentHash": "54c28c84e5277b35b8c8329ce9755dae",
+      "sourceName": "contracts/Greeter.sol",
+      "solcConfig": {
+        "version": "0.8.4",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "hardhat/console.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "Greeter"
+      ]
+    },
+    "/Users/tomascalle/Documents/GitHub/Togge/node_modules/hardhat/console.sol": {
+      "lastModificationDate": 1651606773777,
+      "contentHash": "cc4777addd464ea56fa35b1c45df0591",
+      "sourceName": "hardhat/console.sol",
+      "solcConfig": {
+        "version": "0.8.4",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.4.22 <0.9.0"
+      ],
+      "artifacts": [
+        "console"
+      ]
+    },
+    "/Users/tomascalle/Documents/GitHub/Togge/contracts/StartData.sol": {
+      "lastModificationDate": 1651610970821,
+      "contentHash": "eac1a1b512ad02b3cea5fda10af9c964",
+      "sourceName": "contracts/StartData.sol",
+      "solcConfig": {
+        "version": "0.8.4",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.4"
+      ],
+      "artifacts": []
+    },
+    "/Users/tomascalle/Documents/GitHub/Togge/contracts/Test.sol": {
       "lastModificationDate": 1651607434813,
       "contentHash": "b25cd636e75b1d3ab46ec0c59f6df52a",
       "sourceName": "contracts/Test.sol",
