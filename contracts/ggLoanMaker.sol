@@ -1,13 +1,12 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.4;
+import "./GGLoan.sol";
 
-import "./ggLoan.sol";
-import "./startData.sol";
 
-contract ggLoanMaker {
+contract GGLoanMaker {
     
     address public admin;
-    ggLoan[] public loans;
+    GGLoan[] public loans;
 
     constructor() {
         admin = msg.sender;
@@ -20,7 +19,7 @@ contract ggLoanMaker {
 
     function makeLoan(StartData memory sd) external isadmin returns (uint256) {
         uint256 _id = loans.length;
-        ggLoan _loan = new ggLoan(sd);
+        GGLoan _loan = new GGLoan(sd);
         loans.push(_loan);
         return _id;
     }

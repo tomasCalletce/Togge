@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.4;
-import "../data.sol";
+import "../Data.sol";
 
-library liquidationManager {
+library LiquidationManager {
     // function liquidate();
     function liquidate(Data storage dt) external {
         uint256 _currentTime = block.timestamp;

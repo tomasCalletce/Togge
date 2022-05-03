@@ -3,7 +3,7 @@ pragma solidity ^0.8.4;
 
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 
-contract ggETHV2 is ERC721 {
+contract GGETH is ERC721 {
     address ggLoan;
 
     mapping(uint256 => uint256) public deposits;

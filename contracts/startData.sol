@@ -2,7 +2,6 @@
 pragma solidity ^0.8.4;
 
 struct StartData {
-    uint256 poolSupplyMax;
     uint256 numberBorrowerTokens;
     uint256 reserveFactorMantissa;
     uint256 duracionCiclo;

@@ -2,10 +2,10 @@
 pragma solidity ^0.8.4;
 
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
-import "../data.sol";
-import "../tokens/ggETH.sol";
+import "../Data.sol";
+import "../tokens/GGETH.sol";
 
-library depoManager {
+library DepoManager {
     //@Borrower -- deposit governance token
     function depositTokens(
         uint256 _value,

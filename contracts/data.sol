@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.4;
-import "./tokens/ggETH.sol";
+import "./tokens/GGETH.sol";
 
 struct Data {
     uint256 numberBorrowerTokens;
@@ -35,5 +35,5 @@ struct Data {
     mapping(address => uint256) deposits;
     mapping(address => bool) nftClaimed;
     uint256[] accum;
-    ggETHV2 LPnfts;
+    GGETH LPnfts;
 }

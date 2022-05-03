@@ -1,15 +1,27 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.4;
 
-import "./libraries/depoManager.sol";
-import "./libraries/withdrawManager.sol";
-import "./libraries/paymentManager.sol";
-import "./data.sol";
-import "./startData.sol";
+import "./libraries/DepoManager.sol";
+import "./libraries/WithdrawManager.sol";
+import "./libraries/PaymentManager.sol";
+import "./Data.sol";
+
+struct StartData {
+    uint256 numberBorrowerTokens;
+    uint256 reserveFactorMantissa;
+    uint256 duracionCiclo;
+    uint256 numCiclos;
+    uint256 goalAmount;
+    uint256 multiplier;
+    uint256 discountRate;
+    uint256 auctionDuration;
+    address borrower;
+    address borrowerToken;
+    address loanAdmin;
+}
 
 
-
-contract ggLoan {
+contract GGLoan {
 
     Data dt;
 
@@ -33,7 +45,7 @@ contract ggLoan {
     }
 
     function depositTokens(uint256 _value) external isBorrower {
-        depoManager.depositTokens(
+        DepoManager.depositTokens(
             _value,
             dt.numberBorrowerTokens,
             dt.startOfRaise,
@@ -45,27 +57,27 @@ contract ggLoan {
     }
 
     function LP_deposit() external payable {
-        depoManager.LP_deposit(dt);
+        DepoManager.LP_deposit(dt);
     }
 
     function acceptLoanWithdrawLoan(string memory _name, string memory _symbol) external {
-        withdrawManager.acceptLoanWithdrawLoan(_name, _symbol, dt);
+        WithdrawManager.acceptLoanWithdrawLoan(_name, _symbol, dt);
     }
 
     function withdrawFailedDeposits() external {
-        withdrawManager.withdrawFailedDeposits(dt);
+        WithdrawManager.withdrawFailedDeposits(dt);
     }
 
     function withdrawLPtoken() external {
-        withdrawManager.withdrawLPtoken(dt);
+        WithdrawManager.withdrawLPtoken(dt);
     }
 
     function withdraw() external {
-        withdrawManager.withdraw(dt);
+        WithdrawManager.withdraw(dt);
     }
 
     function makePayment() external {
-        paymentManager.makePayment(dt);
+        PaymentManager.makePayment(dt);
     }
 
     // function liquidate() external{
