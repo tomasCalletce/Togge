@@ -2,9 +2,7 @@
 pragma solidity ^0.8.4;
 import "./GGLoan.sol";
 
-
 contract GGLoanMaker {
-    
     address public admin;
     GGLoan[] public loans;
 
@@ -17,14 +15,30 @@ contract GGLoanMaker {
         _;
     }
 
-    function makeLoan(StartData memory sd) external isadmin returns (uint256) {
+    function makeLoan(
+        uint256 _numberBorrowerTokens,
+        uint256 _reserveFactorMantissa,
+        uint256 _goalAmount,
+        uint256 _multiplier,
+        uint256 _discountRate,
+        address _borrower,
+        address _borrowerToken,
+        address _loanAdmin
+    ) external isadmin returns (uint256) {
         uint256 _id = loans.length;
-        GGLoan _loan = new GGLoan(sd);
+        GGLoan _loan = new GGLoan(
+            _numberBorrowerTokens,
+            _reserveFactorMantissa,
+            _goalAmount,
+            _multiplier,
+            _discountRate,
+            _borrower,
+            _borrowerToken,
+            _loanAdmin
+        );
         loans.push(_loan);
         return _id;
     }
-
-    function gg(StartData memory sd) external view isadmin returns (uint){
-        return sd.multiplier;
-    }
 }
+
+// remixd -s ./hardhat.config.js --remix-ide https://remix.ethereum.org/65520
