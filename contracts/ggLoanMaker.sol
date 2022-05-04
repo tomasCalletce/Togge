@@ -23,4 +23,8 @@ contract GGLoanMaker {
         loans.push(_loan);
         return _id;
     }
+
+    function gg(StartData memory sd) external view isadmin returns (uint){
+        return sd.multiplier;
+    }
 }

@@ -17,15 +17,15 @@ async function main() {
 
     const LiquidationManager = await deployContract(admin, "LiquidationManager");
 
-    const GGLoanMaker = await deployGGLoanMaker(DepoManager,PaymentManager,WithdrawManager);
-    const ggLoan = await makeLoan(DaoToken,GGLoanMaker,admin,dao);
-    console.log(ggLoan);
+    const GGLoanMaker = await deployGGLoanMaker(DepoManager,PaymentManager,WithdrawManager,admin);
+    const ggLoan = await makeLoan(DaoToken,GGLoanMaker,dao,admin);
+
 
     console.log("DAOtoken deployed to:", DaoToken.address);
     console.log("LoanMaker deployed to:", GGLoanMaker.address);
 }
 
-async function makeLoan(DaoToken,GGLoanMaker,admin,dao){
+async function makeLoan(DaoToken,GGLoanMaker,dao,admin){
     const numberBorrowerTokens = String(100*10**18);
     const reserveFactorMantissa = String(.1*10**18);
     const duracionCiclo = "604800"; // 1 week
@@ -34,15 +34,15 @@ async function makeLoan(DaoToken,GGLoanMaker,admin,dao){
     const multiplier = String(30*10**18);
     const discountRate = ethers.utils.parseEther(".1").toString();
     const auctionDuration = "86400"; // 24 hours
-    const borrower = dao.address; // 18 
-    const borrowerToken = DaoToken.address;
-    const loanAdmin = admin.address; // 19 
-    const structInput = `["${numberBorrowerTokens}","${reserveFactorMantissa}","${duracionCiclo}","${numCiclos}","${goalAmount}","${multiplier}","${discountRate}","${auctionDuration}","${borrower}","${borrowerToken}","${loanAdmin}"]`
+    const borrower = "\"" + dao.address + "\""; // 18 
+    const borrowerToken = "\"" + DaoToken.address + "\"";
+    const loanAdmin = "\"" + admin.address + "\""; // 19 
+    const structInput = "["+numberBorrowerTokens+","+reserveFactorMantissa+","+duracionCiclo+","+numCiclos+","+goalAmount+","+multiplier+","+discountRate+","+auctionDuration+","+borrower+","+borrowerToken+","+loanAdmin+"]";
     console.log(structInput);
 
-    return await GGLoanMaker.connect(admin).makeLoan(structInput);
+    return await GGLoanMaker.connect(admin).gg(structInput);
 }
-async function deployGGLoanMaker(DepoManager,PaymentManager,WithdrawManager){
+async function deployGGLoanMaker(DepoManager,PaymentManager,WithdrawManager,admin){
     const LoanMakerContract = await ethers.getContractFactory("GGLoanMaker",{
       libraries : {
         DepoManager : DepoManager.address,

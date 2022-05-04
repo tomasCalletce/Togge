@@ -5,20 +5,8 @@ import "./libraries/DepoManager.sol";
 import "./libraries/WithdrawManager.sol";
 import "./libraries/PaymentManager.sol";
 import "./Data.sol";
+import "./StartData.sol";
 
-struct StartData {
-    uint256 numberBorrowerTokens;
-    uint256 reserveFactorMantissa;
-    uint256 duracionCiclo;
-    uint256 numCiclos;
-    uint256 goalAmount;
-    uint256 multiplier;
-    uint256 discountRate;
-    uint256 auctionDuration;
-    address borrower;
-    address borrowerToken;
-    address loanAdmin;
-}
 
 
 contract GGLoan {

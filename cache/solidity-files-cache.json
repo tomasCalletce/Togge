@@ -477,8 +477,8 @@
       ]
     },
     "/Users/tomascalle/Documents/GitHub/Togge/contracts/GGLoan.sol": {
-      "lastModificationDate": 1651611069279,
-      "contentHash": "53a213ce6268c6595d1bec171771789a",
+      "lastModificationDate": 1651627142046,
+      "contentHash": "9126ece97d6d309c5795428cf4d1b2b1",
       "sourceName": "contracts/GGLoan.sol",
       "solcConfig": {
         "version": "0.8.4",
@@ -507,7 +507,8 @@
         "./libraries/DepoManager.sol",
         "./libraries/WithdrawManager.sol",
         "./libraries/PaymentManager.sol",
-        "./Data.sol"
+        "./Data.sol",
+        "./StartData.sol"
       ],
       "versionPragmas": [
         "^0.8.4"
@@ -740,8 +741,8 @@
       ]
     },
     "/Users/tomascalle/Documents/GitHub/Togge/contracts/GGLoanMaker.sol": {
-      "lastModificationDate": 1651620372409,
-      "contentHash": "95754fc484c1ee67054184484b612563",
+      "lastModificationDate": 1651630195645,
+      "contentHash": "1582e3584e22adc94b6a220560a6b350",
       "sourceName": "contracts/GGLoanMaker.sol",
       "solcConfig": {
         "version": "0.8.4",
@@ -956,8 +957,8 @@
       "artifacts": []
     },
     "/Users/tomascalle/Documents/GitHub/Togge/contracts/Test.sol": {
-      "lastModificationDate": 1651607434813,
-      "contentHash": "b25cd636e75b1d3ab46ec0c59f6df52a",
+      "lastModificationDate": 1651626963386,
+      "contentHash": "2583166f663b5091b7b1bfd3451c3b33",
       "sourceName": "contracts/Test.sol",
       "solcConfig": {
         "version": "0.8.4",
