@@ -22,8 +22,11 @@ module.exports = {
     artifacts: './src/artifacts',
   },
   networks: {
+    hardhat: {
+      chainId: 1337,
+    },
     localhost: {
-      url: "http://localhost:8545/"
+      url: "http://localhost:8545/",
     }
   }
 };

@@ -38,15 +38,7 @@ contract GGLoan {
     }
 
     function depositTokens(uint256 _value) external isBorrower {
-        DepoManager.depositTokens(
-            _value,
-            dt.numberBorrowerTokens,
-            dt.startOfRaise,
-            dt.endOfRaise,
-            dt.endBorrowerAcceptWindow,
-            dt.borrowerToken,
-            dt.borrower
-        );
+        DepoManager.depositTokens(_value, dt);
     }
 
     function LP_deposit() external payable {

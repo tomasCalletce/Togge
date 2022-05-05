@@ -9,7 +9,8 @@ library WithdrawManager {
         string memory _name,
         string memory _symbol,
         Data storage dt
-    ) external {
+    ) external //require dao
+    {
         uint256 _currentTime = block.timestamp;
         require(
             _currentTime > dt.endOfRaise &&

@@ -19,6 +19,8 @@ async function main() {
 
   const GGLoanMaker = await deployGGLoanMaker(DepoManager, PaymentManager, WithdrawManager, admin);
   const ggLoan = await makeLoan(DaoToken, GGLoanMaker, dao, admin);
+  const loanAddress = await GGLoanMaker.loans(0)
+  await DaoToken.approve(loanAddress, multe18(1000));
 
 
   console.log("DAOtoken deployed to:", DaoToken.address);
@@ -34,6 +36,7 @@ async function makeLoan(DaoToken, GGLoanMaker, dao, admin) {
   const borrower = dao.address; // 18 
   const borrowerToken = DaoToken.address;
   const loanAdmin = admin.address; // 19 
+  console.log("pene" + borrower);
 
   return await GGLoanMaker.connect(admin).makeLoan(numberBorrowerTokens, reserveFactorMantissa, goalAmount, multiplier, discountRate, borrower, borrowerToken, loanAdmin);
 }

@@ -7,30 +7,22 @@ import "../tokens/GGETH.sol";
 
 library DepoManager {
     //@Borrower -- deposit governance token
-    function depositTokens(
-        uint256 _value,
-        uint256 _numberBorrowerTokens,
-        uint256 _startOfRaise,
-        uint256 _endOfRaise,
-        uint256 _endBorrowerAcceptWindow,
-        address _borrowerToken,
-        address _borrower
-    ) external {
-        require(_value == _numberBorrowerTokens, "TOGGE: NOT_APPROVED_VALUE");
-        bool success = ERC20(_borrowerToken).transferFrom(
-            _borrower,
+    function depositTokens(uint256 _value, Data storage dt) external {
+        require(_value == dt.numberBorrowerTokens, "TOGGE: NOT_APPROVED_VALUE");
+        bool success = ERC20(dt.borrowerToken).transferFrom(
+            dt.borrower,
             address(this),
             _value
         );
         require(success, "TOGGE: TRANSFER_FAILED");
-        _startOfRaise = block.timestamp;
-        _endOfRaise = _startOfRaise + 24 seconds;
-        _endBorrowerAcceptWindow = _endOfRaise + 10 seconds;
+        dt.startOfRaise = block.timestamp;
+        dt.endOfRaise = dt.startOfRaise + 120 seconds;
+        dt.endBorrowerAcceptWindow = dt.endOfRaise + 100 seconds;
     }
 
     // @LP -- supply eth to main vault
     function LP_deposit(Data storage dt) external {
-        require(msg.sender != dt.borrower, "TOGGE: INVALID_BORROWER");
+        // require(msg.sender != dt.borrower, "TOGGE: INVALID_BORROWER");
         uint256 _currentTime = block.timestamp;
         require(
             _currentTime > dt.startOfRaise && _currentTime < dt.endOfRaise,
