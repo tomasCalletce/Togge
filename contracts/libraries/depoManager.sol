@@ -16,8 +16,8 @@ library DepoManager {
         );
         require(success, "TOGGE: TRANSFER_FAILED");
         dt.startOfRaise = block.timestamp;
-        dt.endOfRaise = dt.startOfRaise + 120 seconds;
-        dt.endBorrowerAcceptWindow = dt.endOfRaise + 100 seconds;
+        dt.endOfRaise = dt.startOfRaise + 60 seconds;
+        dt.endBorrowerAcceptWindow = dt.endOfRaise + 60 seconds;
     }
 
     // @LP -- supply eth to main vault

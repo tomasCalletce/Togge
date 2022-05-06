@@ -27,9 +27,10 @@ contract GGLoan {
         dt.goalAmount = _goalAmount;
         dt.multiplier = _multiplier;
         dt.discountRate = _discountRate;
-        dt.auctionDuration = 86400; // 24 hours
-        dt.duracionCiclo = 604800; // 1 week
-        dt.numCiclos = 10;
+        dt.auctionDuration = 2 minutes; // 24 hours
+        dt.duracionCiclo = 2 minutes; // 1 week
+        dt.numCiclos = 2;
+        dt.auctionStart = 0;
     }
 
     modifier isBorrower() {
@@ -47,6 +48,7 @@ contract GGLoan {
 
     function acceptLoanWithdrawLoan(string memory _name, string memory _symbol)
         external
+        isBorrower
     {
         WithdrawManager.acceptLoanWithdrawLoan(_name, _symbol, dt);
     }
@@ -63,11 +65,42 @@ contract GGLoan {
         WithdrawManager.withdraw(dt);
     }
 
-    function makePayment() external {
+    function makePayment() external payable {
         PaymentManager.makePayment(dt);
     }
 
     // function liquidate() external{
     //     payment
     // }
+    function getLPAddress() external view returns (address) {
+        return address(dt.LPnfts);
+    }
+
+    function getReserveFactorMantissa() external view returns (uint256) {
+        return dt.reserveFactorMantissa;
+    }
+
+    function getNftCounter() external view returns (uint256) {
+        return dt.nftCounter;
+    }
+
+    function getInteresTotal() external view returns (uint256) {
+        return dt.interesTotal;
+    }
+
+    function getEthSupplied() external view returns (uint256) {
+        return dt.ethSupplied;
+    }
+
+    function getUltimoPago() external view returns (uint256) {
+        return dt.ultimoPago;
+    }
+
+    function getDeudaActual() external view returns (uint256) {
+        return dt.deudaActual;
+    }
+
+    function getDeudaTotal() external view returns (uint256) {
+        return dt.deudaTotal;
+    }
 }

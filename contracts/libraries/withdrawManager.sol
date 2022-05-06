@@ -8,9 +8,8 @@ library WithdrawManager {
     function acceptLoanWithdrawLoan(
         string memory _name,
         string memory _symbol,
-        Data storage dt
-    ) external //require dao
-    {
+        Data storage dt //require dao
+    ) external {
         uint256 _currentTime = block.timestamp;
         require(
             _currentTime > dt.endOfRaise &&
@@ -33,8 +32,8 @@ library WithdrawManager {
                 dt.multiplier
             ) +
             dt.reserveFactorMantissa;
-
-        dt.deudaTotal = dt.ethSupplied * (1e18 + dt.interesTotal);
+        //REVISAR PARA INCLUIR DECIMALES
+        dt.deudaTotal = (dt.ethSupplied * (1e18 + dt.interesTotal)) / 1e18;
 
         //se calcula el total a pagar de el DAO
         dt.deudaActual = dt.deudaTotal;
@@ -56,12 +55,6 @@ library WithdrawManager {
         require(dt.loanAccepted, "TOGGE: LOAN_NOT_ACCEPTED");
         require(dt.deposits[msg.sender] != 0, "TOGGE: NO_VALUE");
         require(!dt.nftClaimed[msg.sender], "TOGGE: ClAIMED");
-
-        uint256 _currentTime = block.timestamp;
-        require(
-            _currentTime > dt.endBorrowerAcceptWindow,
-            "TOGGE: OUT_OF_TIME_WINDOW"
-        );
 
         dt.nftClaimed[msg.sender] = true;
         dt.LPnfts.mint(msg.sender, dt.nftCounter, dt.deposits[msg.sender]);

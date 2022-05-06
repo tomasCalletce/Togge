@@ -10,7 +10,9 @@ contract GGETH is ERC721 {
 
     constructor(string memory _name, string memory _symbol)
         ERC721(_name, _symbol)
-    {}
+    {
+        ggLoan = msg.sender;
+    }
 
     function mint(
         address _account,

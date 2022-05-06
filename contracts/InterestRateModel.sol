@@ -9,6 +9,6 @@ library InterestRateModel {
         require(_achievedAmount > 0, "TOGGE: MATH_ERR");
         require(_goalAmount > 0, "TOGGE: WRONG_GOAL_AMOUNT");
 
-        return (_multiplier * (_goalAmount / _achievedAmount));
+        return (_multiplier * (_goalAmount / _achievedAmount)) / 100;
     }
 }

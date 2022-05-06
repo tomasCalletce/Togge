@@ -36,7 +36,7 @@ async function makeLoan(DaoToken, GGLoanMaker, dao, admin) {
   const borrower = dao.address; // 18 
   const borrowerToken = DaoToken.address;
   const loanAdmin = admin.address; // 19 
-  console.log("pene" + borrower);
+
 
   return await GGLoanMaker.connect(admin).makeLoan(numberBorrowerTokens, reserveFactorMantissa, goalAmount, multiplier, discountRate, borrower, borrowerToken, loanAdmin);
 }
