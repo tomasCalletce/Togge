@@ -4,6 +4,8 @@ pragma solidity ^0.8.4;
 import "./libraries/DepoManager.sol";
 import "./libraries/WithdrawManager.sol";
 import "./libraries/PaymentManager.sol";
+import "./libraries/LiquidationManager.sol";
+import "./DutchAuction.sol";
 import "./Data.sol";
 
 contract GGLoan {
@@ -69,9 +71,27 @@ contract GGLoan {
         PaymentManager.makePayment(dt);
     }
 
-    // function liquidate() external{
-    //     payment
-    // }
+    function liquidate() external payable {
+        require(
+            LiquidationManager.liquidate(dt),
+            "TOGGE::liquidate() | DAO HAS PAYED"
+        );
+        dt.auctionStart = block.timestamp;
+    }
+
+    function buy() external {
+        require(dt.auctionStart != 0, "TOGGE::buy() | AuctionNotStarted");
+        DutchAuction.buy(dt);
+    }
+
+    function getPrice() external returns (uint256) {
+        require(
+            LiquidationManager.liquidate(dt),
+            "TOGGE::liquidate() | DAO HAS PAYED"
+        );
+        return DutchAuction.getPrice(dt);
+    }
+
     function getLPAddress() external view returns (address) {
         return address(dt.LPnfts);
     }
