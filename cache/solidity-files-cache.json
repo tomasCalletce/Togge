@@ -6,7 +6,7 @@
       "contentHash": "24d279e8b408d98fe9c55982a1be4f0f",
       "sourceName": "contracts/Data.sol",
       "solcConfig": {
-        "version": "0.8.7",
+        "version": "0.8.4",
         "settings": {
           "optimizer": {
             "enabled": false,
@@ -41,7 +41,7 @@
       "contentHash": "eac1a1b512ad02b3cea5fda10af9c964",
       "sourceName": "contracts/startData.sol",
       "solcConfig": {
-        "version": "0.8.7",
+        "version": "0.8.4",
         "settings": {
           "optimizer": {
             "enabled": false,
@@ -70,11 +70,11 @@
       "artifacts": []
     },
     "/Users/juancamilosalazar/Desktop/Togge/contracts/tokens/GGETH.sol": {
-      "lastModificationDate": 1651797017493,
+      "lastModificationDate": 1651865248314,
       "contentHash": "9abd29a9d5c749e98b010ace777cb250",
       "sourceName": "contracts/tokens/GGETH.sol",
       "solcConfig": {
-        "version": "0.8.7",
+        "version": "0.8.4",
         "settings": {
           "optimizer": {
             "enabled": false,
@@ -111,7 +111,7 @@
       "contentHash": "21b9f3bdb3e60f56ea81361c37420136",
       "sourceName": "@openzeppelin/contracts/token/ERC721/ERC721.sol",
       "solcConfig": {
-        "version": "0.8.7",
+        "version": "0.8.4",
         "settings": {
           "optimizer": {
             "enabled": false,
@@ -154,7 +154,7 @@
       "contentHash": "cd8e72e5859bddd5fd26b2fb5c51c846",
       "sourceName": "@openzeppelin/contracts/token/ERC721/IERC721.sol",
       "solcConfig": {
-        "version": "0.8.7",
+        "version": "0.8.4",
         "settings": {
           "optimizer": {
             "enabled": false,
@@ -191,7 +191,7 @@
       "contentHash": "c22d4395e33763de693fd440c6fd10e1",
       "sourceName": "@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol",
       "solcConfig": {
-        "version": "0.8.7",
+        "version": "0.8.4",
         "settings": {
           "optimizer": {
             "enabled": false,
@@ -226,7 +226,7 @@
       "contentHash": "efbc0d15b80a74e34dbe8da0f3e879bb",
       "sourceName": "@openzeppelin/contracts/token/ERC721/extensions/IERC721Metadata.sol",
       "solcConfig": {
-        "version": "0.8.7",
+        "version": "0.8.4",
         "settings": {
           "optimizer": {
             "enabled": false,
@@ -263,7 +263,7 @@
       "contentHash": "ad714a6368ee7d43cded6bbe8af0b155",
       "sourceName": "@openzeppelin/contracts/utils/Address.sol",
       "solcConfig": {
-        "version": "0.8.7",
+        "version": "0.8.4",
         "settings": {
           "optimizer": {
             "enabled": false,
@@ -298,7 +298,7 @@
       "contentHash": "5f2c5c4b6af2dd4551027144797bc8be",
       "sourceName": "@openzeppelin/contracts/utils/Context.sol",
       "solcConfig": {
-        "version": "0.8.7",
+        "version": "0.8.4",
         "settings": {
           "optimizer": {
             "enabled": false,
@@ -333,7 +333,7 @@
       "contentHash": "9c54c6c065d9e590fdcdd72c451425b9",
       "sourceName": "@openzeppelin/contracts/utils/Strings.sol",
       "solcConfig": {
-        "version": "0.8.7",
+        "version": "0.8.4",
         "settings": {
           "optimizer": {
             "enabled": false,
@@ -368,7 +368,7 @@
       "contentHash": "0e7db055ce108f9da7bb6686a00287c0",
       "sourceName": "@openzeppelin/contracts/utils/introspection/ERC165.sol",
       "solcConfig": {
-        "version": "0.8.7",
+        "version": "0.8.4",
         "settings": {
           "optimizer": {
             "enabled": false,
@@ -405,7 +405,7 @@
       "contentHash": "03e6768535ac4da0e9756f1d8a4a018a",
       "sourceName": "@openzeppelin/contracts/utils/introspection/IERC165.sol",
       "solcConfig": {
-        "version": "0.8.7",
+        "version": "0.8.4",
         "settings": {
           "optimizer": {
             "enabled": false,
@@ -436,11 +436,11 @@
       ]
     },
     "/Users/juancamilosalazar/Desktop/Togge/contracts/libraries/LiquidationManager.sol": {
-      "lastModificationDate": 1651687960004,
-      "contentHash": "3254c6f9e45b7edd16745384e90aa6e7",
+      "lastModificationDate": 1651801248067,
+      "contentHash": "a2f92d78129e524a750a44b246b68376",
       "sourceName": "contracts/libraries/LiquidationManager.sol",
       "solcConfig": {
-        "version": "0.8.7",
+        "version": "0.8.4",
         "settings": {
           "optimizer": {
             "enabled": false,
@@ -463,7 +463,8 @@
         }
       },
       "imports": [
-        "../Data.sol"
+        "../Data.sol",
+        "../DutchAuction.sol"
       ],
       "versionPragmas": [
         "^0.8.4"
@@ -473,11 +474,11 @@
       ]
     },
     "/Users/juancamilosalazar/Desktop/Togge/contracts/libraries/PaymentManager.sol": {
-      "lastModificationDate": 1651611665720,
+      "lastModificationDate": 1651797227192,
       "contentHash": "3fd37dc277b71e64cb0d4092f0dac913",
       "sourceName": "contracts/libraries/PaymentManager.sol",
       "solcConfig": {
-        "version": "0.8.7",
+        "version": "0.8.4",
         "settings": {
           "optimizer": {
             "enabled": false,
@@ -510,11 +511,11 @@
       ]
     },
     "/Users/juancamilosalazar/Desktop/Togge/contracts/GGLoan.sol": {
-      "lastModificationDate": 1651782550699,
-      "contentHash": "02ee6d4908c517789fe13806c485810d",
+      "lastModificationDate": 1651864845449,
+      "contentHash": "472d0b8308a3e3439f4c1234cce26a7a",
       "sourceName": "contracts/GGLoan.sol",
       "solcConfig": {
-        "version": "0.8.7",
+        "version": "0.8.4",
         "settings": {
           "optimizer": {
             "enabled": false,
@@ -540,7 +541,10 @@
         "./libraries/DepoManager.sol",
         "./libraries/WithdrawManager.sol",
         "./libraries/PaymentManager.sol",
-        "./Data.sol"
+        "./libraries/LiquidationManager.sol",
+        "./DutchAuction.sol",
+        "./Data.sol",
+        "hardhat/console.sol"
       ],
       "versionPragmas": [
         "^0.8.4"
@@ -554,7 +558,7 @@
       "contentHash": "743934f793ccaf471e53b0c68ebd6ee9",
       "sourceName": "contracts/libraries/DepoManager.sol",
       "solcConfig": {
-        "version": "0.8.7",
+        "version": "0.8.4",
         "settings": {
           "optimizer": {
             "enabled": false,
@@ -593,7 +597,7 @@
       "contentHash": "81b10be96d8154931b9febbf3e44f2fe",
       "sourceName": "contracts/libraries/WithdrawManager.sol",
       "solcConfig": {
-        "version": "0.8.7",
+        "version": "0.8.4",
         "settings": {
           "optimizer": {
             "enabled": false,
@@ -631,7 +635,7 @@
       "contentHash": "a9d2146925da52142435d3bb8df53c3c",
       "sourceName": "@openzeppelin/contracts/token/ERC20/ERC20.sol",
       "solcConfig": {
-        "version": "0.8.7",
+        "version": "0.8.4",
         "settings": {
           "optimizer": {
             "enabled": false,
@@ -670,7 +674,7 @@
       "contentHash": "ad7c2d0af148c8f9f097d65deeb4da6b",
       "sourceName": "@openzeppelin/contracts/token/ERC20/IERC20.sol",
       "solcConfig": {
-        "version": "0.8.7",
+        "version": "0.8.4",
         "settings": {
           "optimizer": {
             "enabled": false,
@@ -705,7 +709,7 @@
       "contentHash": "909ab67fc5c25033fe6cd364f8c056f9",
       "sourceName": "@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol",
       "solcConfig": {
-        "version": "0.8.7",
+        "version": "0.8.4",
         "settings": {
           "optimizer": {
             "enabled": false,
@@ -742,7 +746,7 @@
       "contentHash": "f06bc7b7572df3890f5b5015aab40f9f",
       "sourceName": "contracts/InterestRateModel.sol",
       "solcConfig": {
-        "version": "0.8.7",
+        "version": "0.8.4",
         "settings": {
           "optimizer": {
             "enabled": false,
@@ -773,11 +777,11 @@
       ]
     },
     "/Users/juancamilosalazar/Desktop/Togge/contracts/GGLoanMaker.sol": {
-      "lastModificationDate": 1651797015786,
+      "lastModificationDate": 1651865839726,
       "contentHash": "f884c180e6d7a4ce4b90e8b4d2c0fada",
       "sourceName": "contracts/GGLoanMaker.sol",
       "solcConfig": {
-        "version": "0.8.7",
+        "version": "0.8.4",
         "settings": {
           "optimizer": {
             "enabled": false,
@@ -810,11 +814,11 @@
       ]
     },
     "/Users/juancamilosalazar/Desktop/Togge/contracts/tokens/DaoToken.sol": {
-      "lastModificationDate": 1651796795674,
-      "contentHash": "749cc44d25c68e04e38137d5f9d64132",
+      "lastModificationDate": 1651865840136,
+      "contentHash": "f96fdd69715416bf9ad5d94de7380a32",
       "sourceName": "contracts/tokens/DaoToken.sol",
       "solcConfig": {
-        "version": "0.8.7",
+        "version": "0.8.4",
         "settings": {
           "optimizer": {
             "enabled": false,
@@ -847,11 +851,11 @@
       ]
     },
     "/Users/juancamilosalazar/Desktop/Togge/contracts/DutchAuction.sol": {
-      "lastModificationDate": 1651643616973,
-      "contentHash": "13bacb14c31ef1e95e13129b6dd19dcd",
+      "lastModificationDate": 1651806847531,
+      "contentHash": "35b9c4d0cbb4f1b92a67ee10fc6eb836",
       "sourceName": "contracts/DutchAuction.sol",
       "solcConfig": {
-        "version": "0.8.7",
+        "version": "0.8.4",
         "settings": {
           "optimizer": {
             "enabled": false,
@@ -888,7 +892,7 @@
       "contentHash": "54c28c84e5277b35b8c8329ce9755dae",
       "sourceName": "contracts/Greeter.sol",
       "solcConfig": {
-        "version": "0.8.7",
+        "version": "0.8.4",
         "settings": {
           "optimizer": {
             "enabled": false,
@@ -925,7 +929,7 @@
       "contentHash": "cc4777addd464ea56fa35b1c45df0591",
       "sourceName": "hardhat/console.sol",
       "solcConfig": {
-        "version": "0.8.7",
+        "version": "0.8.4",
         "settings": {
           "optimizer": {
             "enabled": false,
@@ -960,7 +964,7 @@
       "contentHash": "2583166f663b5091b7b1bfd3451c3b33",
       "sourceName": "contracts/Test.sol",
       "solcConfig": {
-        "version": "0.8.7",
+        "version": "0.8.4",
         "settings": {
           "optimizer": {
             "enabled": false,
@@ -988,6 +992,374 @@
       ],
       "artifacts": [
         "Test"
+      ]
+    },
+    "/Users/juancamilosalazar/Desktop/Togge/node_modules/@openzeppelin/contracts/utils/cryptography/ECDSA.sol": {
+      "lastModificationDate": 1651639925387,
+      "contentHash": "482bcc512029ecf51ca4ae85cf4667c7",
+      "sourceName": "@openzeppelin/contracts/utils/cryptography/ECDSA.sol",
+      "solcConfig": {
+        "version": "0.8.4",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../Strings.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "ECDSA"
+      ]
+    },
+    "/Users/juancamilosalazar/Desktop/Togge/node_modules/@openzeppelin/contracts/utils/cryptography/draft-EIP712.sol": {
+      "lastModificationDate": 1651639925331,
+      "contentHash": "161aae4dc1450371d0f324488f66a9cf",
+      "sourceName": "@openzeppelin/contracts/utils/cryptography/draft-EIP712.sol",
+      "solcConfig": {
+        "version": "0.8.4",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./ECDSA.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "EIP712"
+      ]
+    },
+    "/Users/juancamilosalazar/Desktop/Togge/node_modules/@openzeppelin/contracts/token/ERC20/extensions/draft-ERC20Permit.sol": {
+      "lastModificationDate": 1651639925347,
+      "contentHash": "3c98f8ccc741d97ece615ce32d638d4c",
+      "sourceName": "@openzeppelin/contracts/token/ERC20/extensions/draft-ERC20Permit.sol",
+      "solcConfig": {
+        "version": "0.8.4",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./draft-IERC20Permit.sol",
+        "../ERC20.sol",
+        "../../../utils/cryptography/draft-EIP712.sol",
+        "../../../utils/cryptography/ECDSA.sol",
+        "../../../utils/Counters.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "ERC20Permit"
+      ]
+    },
+    "/Users/juancamilosalazar/Desktop/Togge/node_modules/@openzeppelin/contracts/token/ERC20/extensions/draft-IERC20Permit.sol": {
+      "lastModificationDate": 1651639925381,
+      "contentHash": "fb77f144244b9ab12533aa6ce85ef8c5",
+      "sourceName": "@openzeppelin/contracts/token/ERC20/extensions/draft-IERC20Permit.sol",
+      "solcConfig": {
+        "version": "0.8.4",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "IERC20Permit"
+      ]
+    },
+    "/Users/juancamilosalazar/Desktop/Togge/node_modules/@openzeppelin/contracts/utils/Counters.sol": {
+      "lastModificationDate": 1651639925277,
+      "contentHash": "74654e3ae5d7f39555055dfe244dab7a",
+      "sourceName": "@openzeppelin/contracts/utils/Counters.sol",
+      "solcConfig": {
+        "version": "0.8.4",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "Counters"
+      ]
+    },
+    "/Users/juancamilosalazar/Desktop/Togge/node_modules/@openzeppelin/contracts/token/ERC20/extensions/ERC20Votes.sol": {
+      "lastModificationDate": 1651639925602,
+      "contentHash": "d750921452f3bf2ab170f55cf4f5dc71",
+      "sourceName": "@openzeppelin/contracts/token/ERC20/extensions/ERC20Votes.sol",
+      "solcConfig": {
+        "version": "0.8.4",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./draft-ERC20Permit.sol",
+        "../../../utils/math/Math.sol",
+        "../../../governance/utils/IVotes.sol",
+        "../../../utils/math/SafeCast.sol",
+        "../../../utils/cryptography/ECDSA.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "ERC20Votes"
+      ]
+    },
+    "/Users/juancamilosalazar/Desktop/Togge/node_modules/@openzeppelin/contracts/utils/math/Math.sol": {
+      "lastModificationDate": 1651639925715,
+      "contentHash": "339b9793dcbd7b5d55af725ef47de74c",
+      "sourceName": "@openzeppelin/contracts/utils/math/Math.sol",
+      "solcConfig": {
+        "version": "0.8.4",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "Math"
+      ]
+    },
+    "/Users/juancamilosalazar/Desktop/Togge/node_modules/@openzeppelin/contracts/governance/utils/IVotes.sol": {
+      "lastModificationDate": 1651639925710,
+      "contentHash": "a036d40989f21d08bb990e68d0088fa1",
+      "sourceName": "@openzeppelin/contracts/governance/utils/IVotes.sol",
+      "solcConfig": {
+        "version": "0.8.4",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "IVotes"
+      ]
+    },
+    "/Users/juancamilosalazar/Desktop/Togge/node_modules/@openzeppelin/contracts/utils/math/SafeCast.sol": {
+      "lastModificationDate": 1651639925722,
+      "contentHash": "cd91252bfcbee6eaba8f5144f504583c",
+      "sourceName": "@openzeppelin/contracts/utils/math/SafeCast.sol",
+      "solcConfig": {
+        "version": "0.8.4",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "SafeCast"
+      ]
+    },
+    "/Users/juancamilosalazar/Desktop/Togge/node_modules/@openzeppelin/contracts/token/ERC20/extensions/ERC20VotesComp.sol": {
+      "lastModificationDate": 1651639925606,
+      "contentHash": "85de097d4da905cf320e89d73840291a",
+      "sourceName": "@openzeppelin/contracts/token/ERC20/extensions/ERC20VotesComp.sol",
+      "solcConfig": {
+        "version": "0.8.4",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./ERC20Votes.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "ERC20VotesComp"
       ]
     }
   }

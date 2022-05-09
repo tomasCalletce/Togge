@@ -17,7 +17,11 @@ async function main() {
 
   const LiquidationManager = await deployContract(admin, "LiquidationManager");
 
-  const GGLoanMaker = await deployGGLoanMaker(DepoManager, PaymentManager, WithdrawManager, admin);
+  const DutchAuction = await deployContract(admin, "DutchAuction");
+
+
+
+  const GGLoanMaker = await deployGGLoanMaker(DepoManager, PaymentManager, WithdrawManager, LiquidationManager, DutchAuction, admin);
   const ggLoan = await makeLoan(DaoToken, GGLoanMaker, dao, admin);
   const loanAddress = await GGLoanMaker.loans(0)
   await DaoToken.approve(loanAddress, multe18(1000));
@@ -40,12 +44,14 @@ async function makeLoan(DaoToken, GGLoanMaker, dao, admin) {
 
   return await GGLoanMaker.connect(admin).makeLoan(numberBorrowerTokens, reserveFactorMantissa, goalAmount, multiplier, discountRate, borrower, borrowerToken, loanAdmin);
 }
-async function deployGGLoanMaker(DepoManager, PaymentManager, WithdrawManager, admin) {
+async function deployGGLoanMaker(DepoManager, PaymentManager, WithdrawManager, LiquidationManager, DutchAuction, admin) {
   const LoanMakerContract = await ethers.getContractFactory("GGLoanMaker", {
     libraries: {
       DepoManager: DepoManager.address,
       PaymentManager: PaymentManager.address,
       WithdrawManager: WithdrawManager.address,
+      LiquidationManager: LiquidationManager.address,
+      DutchAuction: DutchAuction.address
     }
   });
   const LoanMaker = await LoanMakerContract.connect(admin).deploy();

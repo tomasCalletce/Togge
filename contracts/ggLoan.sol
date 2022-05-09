@@ -7,6 +7,7 @@ import "./libraries/PaymentManager.sol";
 import "./libraries/LiquidationManager.sol";
 import "./DutchAuction.sol";
 import "./Data.sol";
+import "hardhat/console.sol";
 
 contract GGLoan {
     Data dt;
@@ -71,7 +72,14 @@ contract GGLoan {
         PaymentManager.makePayment(dt);
     }
 
-    function liquidate() external payable {
+    function liquidate() external {
+        // if()
+        uint256 empieza = (block.timestamp - dt.endBorrowerAcceptWindow) /
+            dt.duracionCiclo;
+        require(
+            dt.auctionStart == 0,
+            "TOOGE::liquidate() | still in previous cycle"
+        );
         require(
             LiquidationManager.liquidate(dt),
             "TOGGE::liquidate() | DAO HAS PAYED"
@@ -79,9 +87,10 @@ contract GGLoan {
         dt.auctionStart = block.timestamp;
     }
 
-    function buy() external {
+    function buy() external payable {
         require(dt.auctionStart != 0, "TOGGE::buy() | AuctionNotStarted");
         DutchAuction.buy(dt);
+        dt.auctionStart = 1;
     }
 
     function getPrice() external returns (uint256) {
@@ -89,7 +98,9 @@ contract GGLoan {
             LiquidationManager.liquidate(dt),
             "TOGGE::liquidate() | DAO HAS PAYED"
         );
-        return DutchAuction.getPrice(dt);
+        uint256 r = DutchAuction.getPrice(dt);
+        console.log(r);
+        return r;
     }
 
     function getLPAddress() external view returns (address) {
