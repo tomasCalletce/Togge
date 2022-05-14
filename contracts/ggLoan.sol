@@ -74,8 +74,7 @@ contract GGLoan {
 
     function liquidate() external {
         // if()
-        uint256 empieza = (block.timestamp - dt.endBorrowerAcceptWindow) /
-            dt.duracionCiclo;
+        uint256 empieza = (block.timestamp - dt.endBorrowerAcceptWindow) / dt.duracionCiclo;
         require(
             dt.auctionStart == 0,
             "TOOGE::liquidate() | still in previous cycle"
