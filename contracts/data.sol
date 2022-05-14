@@ -24,6 +24,7 @@ struct Data {
     uint256 numCiclos;
     uint256 deudaTotal;
     // dutch dutch auction
+    uint256 previousCycle;
     uint256 discountRate;
     uint256 auctionStart;
     uint256 auctionDuration;

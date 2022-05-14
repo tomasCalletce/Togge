@@ -5,6 +5,7 @@ import "./libraries/DepoManager.sol";
 import "./libraries/WithdrawManager.sol";
 import "./libraries/PaymentManager.sol";
 import "./libraries/LiquidationManager.sol";
+import "./tokens/DaoToken.sol";
 import "./DutchAuction.sol";
 import "./Data.sol";
 import "hardhat/console.sol";
@@ -73,31 +74,33 @@ contract GGLoan {
     }
 
     function liquidate() external {
-        // if()
-        uint256 empieza = (block.timestamp - dt.endBorrowerAcceptWindow) /
+        uint256 actualCycle = (block.timestamp - dt.endBorrowerAcceptWindow) /
             dt.duracionCiclo;
         require(
-            dt.auctionStart == 0,
-            "TOOGE::liquidate() | still in previous cycle"
+            dt.previousCycle != actualCycle,
+            "TOGGE::liquidate() | still in previous cycle"
         );
         require(
             LiquidationManager.liquidate(dt),
             "TOGGE::liquidate() | DAO HAS PAYED"
         );
+
+        dt.previousCycle =
+            (dt.auctionStart + dt.auctionDuration) /
+            dt.duracionCiclo;
         dt.auctionStart = block.timestamp;
+        DaoToken(dt.borrowerToken).removeDelegate();
     }
 
     function buy() external payable {
         require(dt.auctionStart != 0, "TOGGE::buy() | AuctionNotStarted");
         DutchAuction.buy(dt);
-        dt.auctionStart = 1;
+        dt.auctionStart = 0;
     }
 
-    function getPrice() external returns (uint256) {
-        require(
-            LiquidationManager.liquidate(dt),
-            "TOGGE::liquidate() | DAO HAS PAYED"
-        );
+    function getPrice() external view returns (uint256) {
+        require(dt.auctionStart != 0, "TOGGE::buy() | AuctionNotStarted");
+
         uint256 r = DutchAuction.getPrice(dt);
         console.log(r);
         return r;
