@@ -30,13 +30,13 @@ library DepoManager {
         );
         require(dt.deposits[msg.sender] == 0, "already deposited");
         dt.deposits[msg.sender] = msg.value;
-        if (dt.accum.length != 0) {
-            uint256 temp = dt.accum[dt.currentIndex++] + msg.value;
-            dt.accum.push(temp);
-        } else {
-            dt.accum.push(msg.value);
-        }
-        dt.indexing[msg.sender] = dt.currentIndex;
+        // if (dt.accum.length != 0) {
+        //     uint256 temp = dt.accum[dt.currentIndex++] + msg.value;
+        //     dt.accum.push(temp);
+        // } else {
+        //     dt.accum.push(msg.value);
+        // }
+        // dt.indexing[msg.sender] = dt.currentIndex;
         dt.ethSupplied += msg.value;
     }
 

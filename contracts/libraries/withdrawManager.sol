@@ -58,44 +58,53 @@ library WithdrawManager {
 
         dt.nftClaimed[msg.sender] = true;
         dt.LPnfts.mint(msg.sender, dt.nftCounter, dt.deposits[msg.sender]);
+
+        if (dt.accum.length != 0) {
+        uint256 temp = dt.accum[dt.currentIndex++] + dt.deposits[msg.sender];
+        dt.accum.push(temp);
+        } else {
+            dt.accum.push(dt.deposits[msg.sender]);
+        }
+        dt.indexing[dt.nftCounter] = dt.currentIndex;
         dt.nftCounter++;
     }
 
     // @LP - withdraw deposit + interest
-    function withdraw(Data storage dt) external {
-        uint256 index = dt.indexing[msg.sender];
+    function withdraw(Data storage dt,uint _id) external {
+
+        uint _valorDAORecibido = dt.deudaTotal - dt.deudaActual;
+        uint _deposit = dt.LPnfts.deposits(_id);
+        uint _valorRetiroLPs = dt.LPnfts.getValorRetiroLPs();
+        uint256 index = dt.indexing[_id];
         bool primero = index == 0 &&
-            dt.accum[index] <= dt.valorDAORecibido - dt.valorRetiroLPs;
+            dt.accum[index] <= _valorDAORecibido - _valorRetiroLPs;
         bool segundo = true;
         uint256 yaSaco = 0;
         if (index > 0) {
-            segundo =
-                dt.accum[index - 1] < dt.valorDAORecibido - dt.valorRetiroLPs; //
+            segundo = dt.accum[index - 1] < _valorDAORecibido - _valorRetiroLPs; //
             yaSaco =
                 dt.accum[index] -
                 dt.accum[index - 1] -
-                dt.deposits[msg.sender];
+                _deposit;
         }
         require(segundo || primero, "not eligible");
-        require(dt.deposits[msg.sender] > 0, "insufficient Funds");
+        require(_deposit > 0, "insufficient Funds");
         uint256 min = 0;
 
         if (index > 0) {
-            //si la diferencia es menor a lo que tiene el LP, entonces que el valor que pueda retirar sea esa diferencia menoor
             require(
-                dt.accum[index - 1] + yaSaco < dt.valorDAORecibido,
+                dt.accum[index - 1] + yaSaco < _valorDAORecibido,
                 "can't withdraw more"
             );
-            min = dt.valorDAORecibido - dt.accum[index - 1] <
-                dt.deposits[msg.sender]
-                ? dt.valorDAORecibido - dt.accum[index - 1]
-                : dt.deposits[msg.sender];
+            min = _valorDAORecibido - dt.accum[index - 1] < _deposit
+            ? _valorDAORecibido - dt.accum[index - 1]
+            : _deposit;
         }
-        uint256 cantidadARetirar = index == 0 ? dt.deposits[msg.sender] : min;
+        uint256 cantidadARetirar = index == 0 ? _deposit : min;
         //cantidad ARetirar debe ser menor
-        require(cantidadARetirar <= dt.valorDAORecibido);
-        dt.deposits[msg.sender] -= cantidadARetirar;
-        if (cantidadARetirar > 0)
-            payable(msg.sender).transfer(cantidadARetirar);
+        require(cantidadARetirar <= _valorDAORecibido);
+        if (cantidadARetirar > 0){
+            dt.LPnfts.withdraw(_id,cantidadARetirar);
+        }
     }
 }

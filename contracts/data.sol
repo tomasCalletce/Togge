@@ -10,8 +10,6 @@ struct Data {
     uint256 currentIndex;
     uint256 endBorrowerAcceptWindow;
     uint256 nftCounter;
-    uint256 valorDAORecibido;
-    uint256 valorRetiroLPs;
     uint256 interesTotal;
     uint256 ethSupplied;
     //interest rate
@@ -32,7 +30,7 @@ struct Data {
     address borrowerToken;
     address loanAdmin;
     bool loanAccepted;
-    mapping(address => uint256) indexing;
+    mapping(uint => uint256) indexing;
     mapping(address => uint256) deposits;
     mapping(address => bool) nftClaimed;
     uint256[] accum;

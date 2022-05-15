@@ -65,8 +65,8 @@ contract GGLoan {
         WithdrawManager.withdrawLPtoken(dt);
     }
 
-    function withdraw() external {
-        WithdrawManager.withdraw(dt);
+    function withdraw(uint _id) external {
+        WithdrawManager.withdraw(dt,_id);
     }
 
     function makePayment() external payable {
