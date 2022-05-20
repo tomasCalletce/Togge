@@ -2,6 +2,7 @@
 pragma solidity ^0.8.4;
 import "../Data.sol";
 import "../InterestRateModel.sol";
+import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 
 library WithdrawManager {
     //@Borrower -- withdraw loan and create lp token
@@ -37,6 +38,8 @@ library WithdrawManager {
 
         //se calcula el total a pagar de el DAO
         dt.deudaActual = dt.deudaTotal;
+        //DAO has accepted
+        dt.endBorrowerAcceptWindow = block.timestamp;
     }
 
     //@LP -- withdarw deposit if failed loan
@@ -51,7 +54,7 @@ library WithdrawManager {
     }
 
     // LP -- mint lp token
-    function withdrawLPtoken(Data storage dt) external {
+    function withdrawLPtoken(Data storage dt) external returns (bool) {
         require(dt.loanAccepted, "TOGGE: LOAN_NOT_ACCEPTED");
         require(dt.deposits[msg.sender] != 0, "TOGGE: NO_VALUE");
         require(!dt.nftClaimed[msg.sender], "TOGGE: ClAIMED");
@@ -60,8 +63,9 @@ library WithdrawManager {
         dt.LPnfts.mint(msg.sender, dt.nftCounter, dt.deposits[msg.sender]);
 
         if (dt.accum.length != 0) {
-        uint256 temp = dt.accum[dt.currentIndex++] + dt.deposits[msg.sender];
-        dt.accum.push(temp);
+            uint256 temp = dt.accum[dt.currentIndex++] +
+                dt.deposits[msg.sender];
+            dt.accum.push(temp);
         } else {
             dt.accum.push(dt.deposits[msg.sender]);
         }
@@ -70,22 +74,16 @@ library WithdrawManager {
     }
 
     // @LP - withdraw deposit + interest
-    function withdraw(Data storage dt,uint _id) external {
-
-        uint _valorDAORecibido = dt.deudaTotal - dt.deudaActual;
-        uint _deposit = dt.LPnfts.deposits(_id);
-        uint _valorRetiroLPs = dt.LPnfts.getValorRetiroLPs();
+    function withdraw(Data storage dt, uint256 _id) external {
+        uint256 _valorDAORecibido = dt.deudaTotal - dt.deudaActual;
+        uint256 _deposit = dt.LPnfts.deposits(_id);
         uint256 index = dt.indexing[_id];
-        bool primero = index == 0 &&
-            dt.accum[index] <= _valorDAORecibido - _valorRetiroLPs;
+        bool primero = index == 0 && dt.accum[index] <= _valorDAORecibido;
         bool segundo = true;
         uint256 yaSaco = 0;
         if (index > 0) {
-            segundo = dt.accum[index - 1] < _valorDAORecibido - _valorRetiroLPs; //
-            yaSaco =
-                dt.accum[index] -
-                dt.accum[index - 1] -
-                _deposit;
+            segundo = dt.accum[index - 1] < _valorDAORecibido; //
+            yaSaco = dt.accum[index] - dt.accum[index - 1] - _deposit;
         }
         require(segundo || primero, "not eligible");
         require(_deposit > 0, "insufficient Funds");
@@ -97,14 +95,24 @@ library WithdrawManager {
                 "can't withdraw more"
             );
             min = _valorDAORecibido - dt.accum[index - 1] < _deposit
-            ? _valorDAORecibido - dt.accum[index - 1]
-            : _deposit;
+                ? _valorDAORecibido - dt.accum[index - 1]
+                : _deposit;
         }
         uint256 cantidadARetirar = index == 0 ? _deposit : min;
         //cantidad ARetirar debe ser menor
         require(cantidadARetirar <= _valorDAORecibido);
-        if (cantidadARetirar > 0){
-            dt.LPnfts.withdraw(_id,cantidadARetirar);
+        if (cantidadARetirar > 0) {
+            dt.LPnfts.withdraw(_id, cantidadARetirar);
+            payable(msg.sender).transfer(cantidadARetirar);
         }
+    }
+
+    function withdrawDaoTokens(Data storage dt) external {
+        require(dt.deudaActual == 0 && dt.loanAccepted);
+        bool success = ERC20(dt.borrowerToken).transfer(
+            payable(dt.borrower),
+            dt.numberBorrowerTokens
+        );
+        require(success, "TOGGE::withdrawDaoTokens | transfer failed");
     }
 }

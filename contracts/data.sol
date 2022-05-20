@@ -26,11 +26,12 @@ struct Data {
     uint256 discountRate;
     uint256 auctionStart;
     uint256 auctionDuration;
+    uint256 price;
     address borrower;
     address borrowerToken;
     address loanAdmin;
     bool loanAccepted;
-    mapping(uint => uint256) indexing;
+    mapping(uint256 => uint256) indexing;
     mapping(address => uint256) deposits;
     mapping(address => bool) nftClaimed;
     uint256[] accum;

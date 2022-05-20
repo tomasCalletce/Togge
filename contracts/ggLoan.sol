@@ -65,8 +65,8 @@ contract GGLoan {
         WithdrawManager.withdrawLPtoken(dt);
     }
 
-    function withdraw(uint _id) external {
-        WithdrawManager.withdraw(dt,_id);
+    function withdraw(uint256 _id) external {
+        WithdrawManager.withdraw(dt, _id);
     }
 
     function makePayment() external payable {
@@ -85,6 +85,7 @@ contract GGLoan {
             "TOGGE::liquidate() | DAO HAS PAYED"
         );
 
+        DutchAuction.setPrice(dt); // initializing price
         dt.previousCycle =
             (dt.auctionStart + dt.auctionDuration) /
             dt.duracionCiclo;
@@ -98,12 +99,15 @@ contract GGLoan {
         dt.auctionStart = 0;
     }
 
-    function getPrice() external view returns (uint256) {
+    function getPrice() external returns (uint256) {
         require(dt.auctionStart != 0, "TOGGE::buy() | AuctionNotStarted");
 
-        uint256 r = DutchAuction.getPrice(dt);
-        console.log(r);
-        return r;
+        DutchAuction.setPrice(dt);
+        return dt.price;
+    }
+
+    function withdrawDaoTokens() external {
+        WithdrawManager.withdrawDaoTokens(dt);
     }
 
     function getLPAddress() external view returns (address) {
@@ -136,5 +140,17 @@ contract GGLoan {
 
     function getDeudaTotal() external view returns (uint256) {
         return dt.deudaTotal;
+    }
+
+    function getDiscountRate() external view returns (uint256) {
+        return dt.discountRate;
+    }
+
+    function getAuctionStart() external view returns (uint256) {
+        return dt.auctionStart;
+    }
+
+    function getCurrentTime() external returns (uint256) {
+        return block.timestamp;
     }
 }

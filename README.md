@@ -12,7 +12,7 @@ npx hardhat test
 npx hardhat node
 node scripts/sample-script.js
 npx hardhat help
-npx hardhat run scripts/deploy.js --network hardhat
+npx hardhat run scripts/deploy.js --network localhost
 remixd -s /path/Togge --remix-ide https://remix.ethereum.org
 sudo npm install -g @remix-project/remixd
 /Users/juancamilosalazar/Desktop/Togge

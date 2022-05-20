@@ -5,7 +5,6 @@ import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 
 contract GGETH is ERC721 {
     address ggLoan;
-    uint valorRetiroLPs;
 
     mapping(uint256 => uint256) public deposits;
 
@@ -20,21 +19,16 @@ contract GGETH is ERC721 {
         uint256 tokenId,
         uint256 deposit
     ) external {
-        require(msg.sender == ggLoan, "ggETH: NOT_ADMIN");
+        require(msg.sender == ggLoan, "ggETH:mint | NOT_ADMIN");
         _mint(_account, tokenId);
         deposits[tokenId] = deposit;
     }
 
-    function withdraw(uint _id,uint _val) external{
-        require(ownerOf(_id) == msg.sender,"ggETH: NOT_OWNER");
-        uint _deposit = deposits[_id];
-        require(_val <= _deposit,"ggETH: NO_ENOUGH_FUNDS");
-        deposits[_id] -= _val; 
-        valorRetiroLPs += _val;
-        payable(msg.sender).transfer(_val);
-    }
-
-    function getValorRetiroLPs() external view returns (uint){
-        return valorRetiroLPs;
+    function withdraw(uint256 _id, uint256 _val) external {
+        require(msg.sender == ggLoan, "ggETH:withdraw | NOT_ADMIN");
+        require(ownerOf(_id) == msg.sender, "ggETH: withdraw | NOT_OWNER");
+        uint256 _deposit = deposits[_id];
+        require(_val <= _deposit, "ggETH: NO_ENOUGH_FUNDS");
+        deposits[_id] -= _val;
     }
 }
